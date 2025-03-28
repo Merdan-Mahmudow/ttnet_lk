@@ -1,7 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { Circle } from '../components/ui/circle.ui'
 import { color } from '../styles/colors'
-import { ToolsIcon, HomeIcon, HumanIcon, MessageIcon, WarnIcon, NotifyIcon, BrowserIcon, FileIcon } from '../assets/icons'
+import { ToolsIcon, HomeIcon, HumanIcon, MessageIcon, WarnIcon, NotifyIcon, BrowserIcon, FileIcon, WifiIcon, WalletIcon } from '../assets/icons'
 import { useState } from 'react'
 
 export const Route: any = createFileRoute('/')({
@@ -44,6 +44,12 @@ function Index() {
 
       <Circle fill={color.ACCENT}>
         <FileIcon fill={color.GRAY_25} width='20' height='20'/>
+      </Circle>
+      <Circle fill={color.ERROR}>
+        <WifiIcon fill={color.GRAY_25} width='20' height='20'/>
+      </Circle>
+      <Circle fill={color.ACCENT}>
+        <WalletIcon fill={color.GRAY_25} width='20' height='20'/>
       </Circle>
     </div>
   )

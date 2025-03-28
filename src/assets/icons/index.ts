@@ -7,6 +7,10 @@ import { LeftArrowIcon } from "./left_arrow.svg";
 import { NotifyIcon } from "./notify.svg";
 import { BrowserIcon } from "./browser.svg";
 import { FileIcon } from "./file.svg";
+import { WifiIcon } from "./wifi.svg";
+import { WalletIcon } from "./wallet.svg";
+
+
 export {
     HumanIcon, 
     HomeIcon,
@@ -17,4 +21,6 @@ export {
     NotifyIcon,
     BrowserIcon,
     FileIcon,
+    WifiIcon,
+    WalletIcon
 }
