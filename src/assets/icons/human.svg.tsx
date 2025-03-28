@@ -1,9 +1,6 @@
-interface HumanIconProps {
-    fill: string
-    width?: string
-    height?: string
-}
-export function HumanIcon({ fill, width, height }: HumanIconProps) {
+import { IconProps } from "../../types/props";
+
+export function HumanIcon({ fill, width, height }: IconProps) {
     return (
         <>
             <svg width={width || "28"} height={height || "26"} viewBox="0 0 21 25" fill="none" xmlns="http://www.w3.org/2000/svg">

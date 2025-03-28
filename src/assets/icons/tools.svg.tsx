@@ -1,11 +1,6 @@
+import { IconProps } from "../../types/props"
 
-interface ToolsIconProps {
-    width?: string
-    height?: string
-    fill: string
-}
-
-export function ToolsIcon({ width, height, fill }: ToolsIconProps) {
+export function ToolsIcon({ width, height, fill }: IconProps) {
     return (
         <>
             <svg width={width || "28"} height={height || "26"} viewBox="0 0 28 26" fill="none" xmlns="http://www.w3.org/2000/svg">
