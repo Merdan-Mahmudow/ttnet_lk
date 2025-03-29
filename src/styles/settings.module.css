@@ -1,0 +1,10 @@
+.title{
+    background-color: var(--accent-color);
+    color: white;
+    padding: 10px 30px;
+    font-family: Roboto;
+    font-weight: 500;
+    letter-spacing: 1px;
+    font-size: 14pt;
+    margin: 0;
+}

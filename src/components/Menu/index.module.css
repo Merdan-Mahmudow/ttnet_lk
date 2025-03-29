@@ -1,0 +1,42 @@
+@import '../../styles/fonts.css';
+.menu {
+    max-width: 280px;
+    padding: 0;
+    margin: 0;
+    height: calc(100vh - 130px);
+}
+.link {
+    display: flex;
+    text-decoration: none;
+    font-family: Roboto;
+    padding: 5px 10px;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.link span {
+    margin-left: 10px; 
+}
+.menu div {
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+.logout {
+    text-decoration: none;
+    display: flex;
+    text-decoration: none;
+    font-family: Roboto;
+    padding: 12px 15px;
+    align-items: center;
+    color: white;
+    border-radius: 50px;
+}
+.logout span {
+    margin-left: 10px; 
+}
+.connect_world {
+    text-align: center;
+    font-family: Roboto Italic;
+    letter-spacing: 1px;
+
+}

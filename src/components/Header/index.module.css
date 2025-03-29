@@ -1,0 +1,40 @@
+@import '../../styles/fonts.css';
+
+.header {
+    grid-area: header;
+    width: 100%;
+    
+}
+.first {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    color: white;
+    align-items: center;
+    font-family: Roboto;
+}
+.second {
+    background-color: white;
+    padding: 15px 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.balance {
+    display: flex;
+    align-items: center;
+}
+.title {
+    font-family: Roboto;
+    font-size: 16pt;
+    font-weight: 500;
+    margin-left: 10px;
+}
+.price {
+    background-color: var(--accent-color);
+    padding: 2px 10px;
+    color: white;
+    font-family: Roboto;
+    margin-left: 5px;
+    border-radius: 50px;
+}

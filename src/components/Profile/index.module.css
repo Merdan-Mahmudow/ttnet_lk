@@ -1,0 +1,13 @@
+.user_content {
+    padding: 30px;
+}
+.img_name {
+    display: flex;
+    align-items: center;
+    font-family: Roboto;
+    font-weight: 100;
+    font-size: 15pt;
+    gap: 20px;
+    color: var(--accent-color);
+    user-select: none;
+}
