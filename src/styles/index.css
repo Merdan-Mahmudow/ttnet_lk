@@ -1,5 +1,6 @@
 :root{
   --accent-color: #036336;
+  --gray-trprn-color: rgba(37, 128, 51, 0.35);
 }
 #root {
   background-image: url(../assets/img/background.png);
