@@ -16,8 +16,9 @@
     border-bottom-right-radius: 50px;
 }
 .link:hover{
-    background-color: var(--gray-75-color);
+    background-color: var(--gray-trprn-color);
 }
+
 .link span {
     margin-left: 10px; 
 }
@@ -45,3 +46,4 @@
     letter-spacing: 1px;
 
 }
+

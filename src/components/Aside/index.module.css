@@ -27,3 +27,15 @@
     display: grid;
     grid-template-rows: 73px 80px 1fr;
 }
+
+.homebar{
+    display: flex;
+    padding: 0px 30px 0px 0px;
+    align-items: center;
+    border-radius: 50px;
+    background-color: transparent;
+}
+
+.homebar:hover{
+    background-color: var(--gray-trprn-color);
+}

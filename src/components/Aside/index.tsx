@@ -15,10 +15,12 @@ export default function Aside({ page }: AsideProps) {
             <div className={style.aside}>
                 <img src={SiteLogo} alt="site_logo" width={"280px"} />
                 <Link to="/" className={style.navigation}>
-                        <Circle fill={color.ACCENT} padding="7px 7px">
+                    <div className={style.homebar}>
+                    <Circle fill={color.ACCENT} padding="7px 7px">
                             <HomeIcon fill="white" width="30" height="30" />
                         </Circle>
                         <span><Circle fill={color.ACCENT} padding="3px 8px">Г</Circle>лавная страница</span>
+                    </div> 
                 </Link>
 
 

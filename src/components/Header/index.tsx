@@ -3,6 +3,7 @@ import KeyImage from "../../assets/img/key.png"
 import { NotifyIcon, WalletIcon } from "../../assets/icons"
 import { color } from "../../styles/colors"
 import { Circle } from "../ui/circle.ui"
+import { Link } from "@tanstack/react-router";
 export function Header (){
     return (
         <header>
@@ -13,11 +14,13 @@ export function Header (){
             </div>
             <div className={style.second}>
                 <div className={style.balance}>
-                    <Circle fill={color.ACCENT} padding="10px 10px">
-                        <WalletIcon fill="white" width="30" height="30"/>
-                    </Circle>
-                    <span className={style.title} style={{color: color.ACCENT}}>Баланс: </span> 
-                    <span className={style.price}>450 €</span>
+                    <Link to="/balance" className={style.link}>
+                        <Circle fill={color.ACCENT} padding="10px 10px">
+                            <WalletIcon fill="white" width="30" height="30"/>
+                        </Circle>
+                        <span className={style.title} style={{color: color.ACCENT}}>Баланс: </span> 
+                        <span className={style.price}>450 €</span>
+                    </Link>
                 </div>
                 <div className={style.balance}>
                     <span className={style.title} style={{color: color.ACCENT}}>Тариф: </span>
