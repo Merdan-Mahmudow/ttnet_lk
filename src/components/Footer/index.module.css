@@ -1,4 +1,8 @@
 .footer {
     grid-area: footer;
-    background-color: brown;
+    background-color: var(--gray-50-color);
+    color: var(--accent-color);
+    font-family: Roboto;
+    padding-left: 10px;
+    font-size: 11pt;
 }

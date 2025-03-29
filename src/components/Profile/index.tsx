@@ -12,12 +12,11 @@ export default function ProfileComponent({ user }: UserProfileProps) {
             <div className={style.img_name}>
                 {hasAvatar ?
                     <Image src={user.avatar} alt={"ProfileLogo"} radius="50%" width="100" height="100" />
-                    : <Circle fill={color.ACCENT} >
+                    : <Circle fill={color.ACCENT}>
                         <HumanIcon fill="white" width="50" height="40" />
                     </Circle>}
                     <h2 className={style.user_name}>{user.name}</h2>
             </div>
-
         </div>
     )
 }

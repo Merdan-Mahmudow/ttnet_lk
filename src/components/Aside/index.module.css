@@ -22,8 +22,8 @@
 }
 .aside {
     grid-area: aside;
-    height: 100vh;
+    height: calc(100vh - 25px);
     width: 280px;
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 73px 80px 1fr;
 }

@@ -17,7 +17,7 @@ export default function Menu({ isActive }: ActivePage) {
             <div  style={{ backgroundColor: isActive === "profile" ? color.ACCENT : "transparent" }}>
                 <Link to="/profile" className={style.link}>
                     <Circle fill={isActive == "profile" ? "white" : color.ACCENT}>
-                        <HumanIcon fill={isActive == "profile" ? color.ACCENT : "white"} width="20" height="20" />
+                        <HumanIcon fill={isActive == "profile" ? color.ACCENT : "white"} width="22" height="22" />
                     </Circle>
                     <span style={{color: isActive === "profile" ? "white" : "black"}}>Профиль</span>
                 </Link>
@@ -26,7 +26,7 @@ export default function Menu({ isActive }: ActivePage) {
             <div style={{ backgroundColor: isActive === "settings" ? color.ACCENT : "transparent" }}>
                 <Link to="/settings" className={style.link}>
                     <Circle fill={isActive == "settings" ? "white" : color.ACCENT}>
-                        <ToolsIcon fill={isActive == "settings" ? color.ACCENT : "white"} width="20" height="20" />
+                        <ToolsIcon fill={isActive == "settings" ? color.ACCENT : "white"} width="22" height="22" />
                     </Circle>
                     <span style={{color: isActive === "settings" ? "white" : "black"}}>Настройка оборудования</span>
                 </Link>
@@ -35,7 +35,7 @@ export default function Menu({ isActive }: ActivePage) {
             <div style={{backgroundColor: isActive === "support" ? color.ACCENT : "transparent" }}>
                 <Link to="/support" className={style.link}>
                     <Circle fill={isActive == "support" ? "white" : color.ACCENT}>
-                        <MessageIcon fill={isActive == "support" ? color.ACCENT : "white"} width="20" height="20" rectFill={isActive == "support" ? "white" : color.ACCENT} />
+                        <MessageIcon fill={isActive == "support" ? color.ACCENT : "white"} width="22" height="22" rectFill={isActive == "support" ? "white" : color.ACCENT} />
                     </Circle>
                     <span style={{color: isActive === "support" ? "white" : "black"}}>Чат с поддержкой</span>
                 </Link>
@@ -44,7 +44,7 @@ export default function Menu({ isActive }: ActivePage) {
             <div style={{ backgroundColor: isActive === "manage" ? color.ACCENT : "transparent" }}>
                 <Link to="/manage" className={style.link}>
                     <Circle fill={isActive == "manage" ? "white" : color.ACCENT}>
-                        <BrowserIcon fill={isActive == "manage" ? color.ACCENT : "white"} width="20" height="20" />
+                        <BrowserIcon fill={isActive == "manage" ? color.ACCENT : "white"} width="22" height="22" />
                     </Circle>
                     <span style={{color: isActive === "manage" ? "white" : "black"}}>Управление доступом</span>
                 </Link>
@@ -53,7 +53,7 @@ export default function Menu({ isActive }: ActivePage) {
             <div style={{backgroundColor: isActive === "balance" ? color.ACCENT : "transparent"}}>
                 <Link to="/balance" className={style.link}>
                     <Circle fill={isActive == "balance" ? "white" : color.ACCENT}>
-                        <WalletIcon fill={isActive == "balance" ? color.ACCENT : "white"} width="20" height="20" />
+                        <WalletIcon fill={isActive == "balance" ? color.ACCENT : "white"} width="22" height="22" />
                     </Circle>
                     <span style={{color: isActive === "balance" ? "white" : "black"}}>Сосотяние счета и история платежей</span>
                 </Link>
@@ -62,7 +62,7 @@ export default function Menu({ isActive }: ActivePage) {
             <div style={{backgroundColor: isActive === "more" ? color.ACCENT : "transparent"}}>
                 <Link to="/more" className={style.link}>
                     <Circle fill={isActive == "more" ? "white" : color.ACCENT}>
-                        <WarnIcon fill={isActive == "more" ? color.ACCENT : "white"} width="20" height="20" />
+                        <WarnIcon fill={isActive == "more" ? color.ACCENT : "white"} width="22" height="22" />
                     </Circle>
                     <span style={{color: isActive === "more" ? "white" : "black"}}>Дополнительные сервисы (скоро)</span>
                 </Link>

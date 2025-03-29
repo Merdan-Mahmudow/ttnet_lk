@@ -4,7 +4,7 @@
     grid-template-areas: 
     "aside header header"
     "aside content content"
-    "aside footer footer";
+    "footer content content";
     grid-template-rows: 160px 1fr 25px;
     width: 1200px;
     box-shadow: black -2px 5px 20px 0px;
