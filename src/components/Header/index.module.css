@@ -15,11 +15,16 @@
 }
 .second {
     background-color: white;
-    padding: 15px 50px;
+    padding: 15px 25px;
     display: flex;
     justify-content: space-between;
 }
-
+.second > *:first-child {
+    margin-left: 0px; 
+}
+  .second > *:last-child {
+    margin-right: 0px; 
+}
 .balance {
     display: flex;
     align-items: center;

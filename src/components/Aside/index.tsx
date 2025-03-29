@@ -18,7 +18,7 @@ export default function Aside({ page }: AsideProps) {
                         <Circle fill={color.ACCENT} padding="7px 7px">
                             <HomeIcon fill="white" width="30" height="30" />
                         </Circle>
-                        <span><Circle fill={color.ACCENT} padding="3px 7px">Г</Circle>лавная страница</span>
+                        <span><Circle fill={color.ACCENT} padding="3px 8px">Г</Circle>лавная страница</span>
                 </Link>
 
 
