@@ -37,5 +37,5 @@
 }
 
 .homebar:hover{
-    background-color: rgba(37, 128, 51, 0.35);
+    background-color: var(--gray-trprn-color);
 }
