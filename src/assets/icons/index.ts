@@ -9,6 +9,7 @@ import { BrowserIcon } from "./browser.svg";
 import { FileIcon } from "./file.svg";
 import { WifiIcon } from "./wifi.svg";
 import { WalletIcon } from "./wallet.svg";
+import { BurgerCloser } from "./burgerCloser.svg";
 
 
 export {
@@ -22,5 +23,6 @@ export {
     BrowserIcon,
     FileIcon,
     WifiIcon,
-    WalletIcon
+    WalletIcon,
+    BurgerCloser
 }
