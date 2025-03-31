@@ -8,7 +8,6 @@ export const Route = createFileRoute('/more')({
 function RouteComponent() {
   return (
     <div>
-      <p className={style.title}>Дополнительные сервисы</p>
     </div>
   )
 }

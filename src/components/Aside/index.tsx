@@ -1,18 +1,16 @@
 import { HomeIcon } from "../../assets/icons"
 import SiteLogo from "../../assets/img/logo.png"
 import { color } from "../../styles/colors"
+import { AsideProps } from "../../types/props"
 import Menu from "../Menu"
 import { Circle } from "../ui/circle.ui"
 import style from "./index.module.css"
 import { Link } from "@tanstack/react-router"
-interface AsideProps {
-    page: "profile" | "settings" | "support" | "manage" | "balance" | "more"
-}
 
-export default function Aside({ page }: AsideProps) {
+export default function Aside({ page, isMobile }: AsideProps) {
     return (
         <>
-            <div className={style.aside}>
+            <div className={!isMobile ? style.aside : style.asideMobile}>
                 <img src={SiteLogo} alt="site_logo" width={"280px"} />
                 <Link to="/" className={style.navigation}>
                     <div className={style.homebar}>

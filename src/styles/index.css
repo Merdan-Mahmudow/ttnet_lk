@@ -3,6 +3,7 @@
   --gray-trprn-color: rgba(37, 128, 51, 0.30);
   --gray-50-color: #E6E6E6;
   --gray-75-color: #D9D9D9;
+  --index-size: calc(1vw + 1vh)
 }
 #root {
   background-image: url(../assets/img/background.png);
@@ -10,4 +11,19 @@
   display: flex;
   justify-content: center;
   overflow: hidden;
+  height: 100vh;
+}
+.flex {
+  display: flex;
+}
+.grid {
+  display: grid;
+}
+.hidden {
+  display: none;
+}
+@media (max-width: 768px) {
+  #root {
+    justify-content: start;
+  }
 }

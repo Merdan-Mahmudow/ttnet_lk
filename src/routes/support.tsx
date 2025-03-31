@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
-import style from "../styles/support.module.css"
+// import style from "../styles/support.module.css"
 
 export const Route = createFileRoute('/support')({
   component: RouteComponent,
@@ -8,7 +8,6 @@ export const Route = createFileRoute('/support')({
 function RouteComponent() {
   return (
     <div>
-    <p className={style.title}>Чат с поддержкой</p>
   </div>
   )
 }

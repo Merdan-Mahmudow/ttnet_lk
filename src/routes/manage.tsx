@@ -8,7 +8,6 @@ export const Route = createFileRoute('/manage')({
 function RouteComponent() {
   return (
     <div>
-      <p className={style.title}>Управление доступом</p>
     </div>
   )
 }

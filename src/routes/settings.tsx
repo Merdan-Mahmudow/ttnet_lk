@@ -8,6 +8,5 @@ export const Route = createFileRoute('/settings')({
 function RouteComponent() {
   return (
     <div>
-      <p className={style.title}>Настройка оборудования</p>
     </div>)
 }

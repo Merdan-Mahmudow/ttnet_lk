@@ -1,6 +1,6 @@
 @import '../../styles/fonts.css';
 .menu {
-    max-width: 280px;
+    width: 280px;
     padding: 0;
     margin: 0;
     display: block;
@@ -46,4 +46,10 @@
     letter-spacing: 1px;
 
 }
-
+@media (max-width: 768px) {
+    .menu{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+}

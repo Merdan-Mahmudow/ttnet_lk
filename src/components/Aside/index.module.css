@@ -39,3 +39,13 @@
 .homebar:hover{
     background-color: var(--gray-trprn-color);
 }
+
+.asideMobile {
+    grid-area: aside;
+    height: calc(100vh - calc(var(--index-size)* 0));
+    position: fixed;
+    width: 100%;
+    display: none;
+    grid-template-rows: 73px 80px 1fr;
+    background-color: white;
+}

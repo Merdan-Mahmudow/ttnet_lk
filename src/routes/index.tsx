@@ -7,7 +7,7 @@ export const Route: any = createFileRoute('/')({
 function Index() {
   return (
     <div>
-      404 Not Found
+      Страница как бы есть, но куда должна вести?
     </div>
   )
 }

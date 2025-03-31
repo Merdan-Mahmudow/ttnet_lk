@@ -1,4 +1,4 @@
-import React from "react"
+import React, { ChangeEvent, RefObject } from "react"
 import { UserInfoResponse } from "./user"
 
 export interface IconProps {
@@ -28,16 +28,20 @@ export interface InputMaskedProps {
     required?: boolean
 }
 
-
-export interface EnterElemntProps {
-    element: "textarea" | "input" | "select"
+export interface TextFieldProps {
     type?: string
-    required?: boolean
-    value?: string
-    onChange?: (e: React.ChangeEvent<HTMLElement>) => void
-    onClick?: (e:React.ChangeEvent<HTMLElement>) => void
-    padding?: string
-    mask?: any
+    className?: string
+    labelClassName?: string
+    label?: string
     placeholder?: string
-    ref?: any
+    ref?: RefObject<HTMLInputElement>
+    value?: string
+    onChange?: (e: ChangeEvent<HTMLInputElement>) => void
+    disabled?: boolean
+}
+
+export interface AsideProps {
+    page: "profile" | "settings" | "support" | "manage" | "balance" | "more"
+    isMobile?: boolean
+    title?: string
 }
