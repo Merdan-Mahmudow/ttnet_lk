@@ -10,6 +10,7 @@
     background-color: white;
     padding-left: 10px;
     padding-bottom: 43px;
+    margin-bottom: 8px;
 }
 .navigation span {
     position: relative;
@@ -28,6 +29,7 @@
     align-items: center;
     border-radius: 50px;
     background-color: transparent;
+    z-index: 1;
 }
 
 .homebar:hover{
@@ -39,7 +41,8 @@
     height: calc(100vh - 25px);
     width: 280px;
     display: grid;
-    grid-template-rows: 73px 80px 1fr;
+    grid-template-rows: 88px 80px 1fr;
+    background-color: white;
 }
 
 .asideMobile {

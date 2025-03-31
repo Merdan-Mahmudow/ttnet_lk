@@ -14,7 +14,7 @@ export function Header({ isMobile, title, toggleAside }: AsideProps & { toggleAs
             <div className={style.first} style={{ backgroundColor: color.ACCENT }}>
                 <img src={KeyImage} alt="KeyImage" className={style.key} />
                 <h1>Личный кабинет</h1>
-                <NotifyIcon fill="white" isNotify={true} />
+                <NotifyIcon fill="white" width="30px" height="30px" isNotify={true}/>
             </div>
             <div className={style.second}>
                 <div className={style.balance}>

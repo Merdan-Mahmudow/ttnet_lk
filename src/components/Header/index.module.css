@@ -7,10 +7,13 @@ header {
     grid-template-rows: 1fr;
 }
 
+
 .first {
-    display: flex;
-    width: 100%;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0 10px;
     color: white;
     align-items: center;
     font-family: Roboto;
@@ -74,8 +77,9 @@ header {
 }
 
 .key {
-    width: calc(var(--index-size) * 3.5);
-    max-width: 75px;
+    width: clamp(50px, 10vw, 80px);
+    height: auto;
+
 }
 
 .pageName {
