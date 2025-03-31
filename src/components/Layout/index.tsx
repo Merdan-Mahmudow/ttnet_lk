@@ -12,42 +12,44 @@ interface AsideProps{
     title: string
 }
 
-export default function () {
-    const path = useLocation()
-    const [currentPage, setCurrentPage] = useState<AsideProps>({ page: "profile", title: "" })
-    const { width } = useWindowSize()
-    const isMobile = width < 768
+export default function Layout() {
+    const path = useLocation();
+    const [currentPage, setCurrentPage] = useState<AsideProps>({ page: "profile", title: "" });
+    const [isAsideOpen, setIsAsideOpen] = useState(false);
+    const { width } = useWindowSize();
+    const isMobile = width < 768;
 
     useEffect(() => {
         switch (path.pathname) {
             case "/profile":
-                setCurrentPage({ page: "profile", title: "Профиль" })
+                setCurrentPage({ page: "profile", title: "Профиль" });
                 break;
             case "/settings":
-                setCurrentPage({ page: "settings", title: "Настройка оборудования" })
+                setCurrentPage({ page: "settings", title: "Настройка оборудования" });
                 break;
             case "/support":
-                setCurrentPage({ page: "support", title: "Чат с поддержкой" })
+                setCurrentPage({ page: "support", title: "Чат с поддержкой" });
                 break;
             case "/manage":
-                setCurrentPage({ page: "manage", title: "Управление доступом" })
+                setCurrentPage({ page: "manage", title: "Управление доступом" });
                 break;
             case "/balance":
-                setCurrentPage({ page: "balance", title: "Состояние счета и история платежей" })
+                setCurrentPage({ page: "balance", title: "Состояние счета и история платежей" });
                 break;
             case "/more":
-                setCurrentPage({ page: "more", title: "Дополнительные сервисы" })
+                setCurrentPage({ page: "more", title: "Дополнительные сервисы" });
                 break;
         }
-    }, [path.pathname])
+    }, [path.pathname]);
+
     return (
         <div className={!isMobile ? style.layout : style.layoutMobile}>
-            <Aside isMobile={isMobile} page={currentPage.page} />
-            <Header isMobile={isMobile} page={currentPage.page} title={currentPage.title}/>
+            <Aside isMobile={isMobile} page={currentPage.page} isOpen={isAsideOpen} />
+            <Header isMobile={isMobile} page={currentPage.page} title={currentPage.title} toggleAside={() => setIsAsideOpen(!isAsideOpen)} />
             <div className={style.content}>
                 <Outlet />
             </div>
             <Footer />
         </div>
-    )
+    );
 }

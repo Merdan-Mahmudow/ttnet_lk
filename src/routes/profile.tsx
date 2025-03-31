@@ -1,5 +1,4 @@
 import { createFileRoute } from '@tanstack/react-router'
-import style from "../styles/profile.module.css"
 import { useQuery } from '@tanstack/react-query'
 import { getUserInfo } from '../hooks/useUser'
 import { UserInfoResponse } from '../types/user'
