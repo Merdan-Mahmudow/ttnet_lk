@@ -41,7 +41,7 @@ export function TextField({ type, className, labelClassName, value, placeholder,
                     :
                     <div className="grid">
                         <label htmlFor="text" className={labelClassName}>{label || null}</label>
-                        <input type="text" ref={ref} className={className} value={value} placeholder={placeholder} disabled={disabled} onChange={onChange} />
+                        <input type="text" ref={ref} className={className} defaultValue={value} placeholder={placeholder} disabled={disabled} onChange={onChange} />
                     </div>
             }
         </>
@@ -63,7 +63,7 @@ export function PasswordField({ className, labelClassName, placeholder, ref, dis
         <div className="grid">
             <label className={labelClassName}>{label || "Пароль: "}</label>
             <input type={showPassword ? "text" : "password"}
-            value={password}
+            defaultValue={password}
             onChange={handleChange}
             placeholder={placeholder}
             style={{paddingRight: "30px"}}

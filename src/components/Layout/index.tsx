@@ -7,7 +7,7 @@ import { Header } from "../Header";
 import { Footer } from "../Footer";
 import { useWindowSize } from "../../hooks/useWindowSize";
 
-interface AsideProps{
+interface AsideProps {
     page: "profile" | "settings" | "support" | "manage" | "balance" | "more"
     title: string
 }
@@ -43,9 +43,11 @@ export default function Layout() {
     }, [path.pathname]);
 
     return (
+
+
         <div className={!isMobile ? style.layout : style.layoutMobile}>
-            <Aside isMobile={isMobile} page={currentPage.page} isOpen={isAsideOpen} />
             <Header isMobile={isMobile} page={currentPage.page} title={currentPage.title} toggleAside={() => setIsAsideOpen(!isAsideOpen)} />
+            <Aside isMobile={isMobile} page={currentPage.page} isOpen={isAsideOpen} />
             <div className={style.content}>
                 <Outlet />
             </div>

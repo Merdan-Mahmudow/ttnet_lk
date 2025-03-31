@@ -21,6 +21,7 @@ function Profile() {
       <p>Ошибка при получении данных</p>
       : null}
     {isSuccess ? <ProfileComponent user={user}/> : null}
+
     </div>
   )
 }
