@@ -8,6 +8,7 @@ import { useSupport } from '../hooks/useSupport'
 import { ChangeEvent, useEffect, useRef, useState } from 'react'
 import { MessageBox } from '../components/ui/message.ui'
 import { MessageProps } from '../types/props'
+import { Toaster } from "../components/ui/toaster"
 
 export const Route = createFileRoute('/support')({
   component: RouteComponent,
@@ -31,12 +32,13 @@ function RouteComponent() {
     setMessages((prev) => [...prev, newMessage]);
     socket.send(JSON.stringify(newMessage));
 
-    setMessage("");
+    
     inputRef.current?.focus();
+    setMessage("");
   };
 
   useEffect(() => {
-    if (!socket) return;
+    if (!socket) return
 
     socket.onopen = () => {
       console.log("connected");
@@ -100,6 +102,7 @@ function RouteComponent() {
           </Button>
         </Group>
       </Box>
+      <Toaster />
     </Box>
   );
 }

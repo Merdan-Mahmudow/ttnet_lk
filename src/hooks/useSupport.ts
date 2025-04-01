@@ -1,11 +1,12 @@
 import { useEffect, useRef, useState } from "react";
+import { toaster } from "../components/ui/toaster";
 
 export function useSupport() {
   const socketRef = useRef<WebSocket | null>(null);
   const [isConnected, setIsConnected] = useState(false);
 
   useEffect(() => {
-    socketRef.current = new WebSocket("wss://api.skyrodev.ru/ws");
+    socketRef.current = new WebSocket("wss://api.skyrodev.ru/wsч");
 
     socketRef.current.onopen = () => {
       console.log("Connected");
@@ -18,7 +19,11 @@ export function useSupport() {
     };
 
     socketRef.current.onerror = (error) => {
-      console.error("WebSocket error:", error);
+      console.log(error)
+      toaster.create({
+        title: `Ошибка подключения к серверу: ${error}`,
+        type: "error"
+      })
     };
 
     return () => {
