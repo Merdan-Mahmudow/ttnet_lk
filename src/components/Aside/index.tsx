@@ -13,10 +13,10 @@ export default function Aside({ page, isMobile, isOpen }: AsideProps & { isOpen:
             <img src={SiteLogo} alt="site_logo" width={"280px"} />
             <Link to="/" className={style.navigation}>
                 <div className={style.homebar}>
-                    <Circle fill={color.ACCENT} padding="7px 7px">
+                    <Circle fill={color.ACCENT} padding="7px 7px" radius="50%">
                         <HomeIcon fill="white" width="30" height="30" />
                     </Circle>
-                    <span><Circle fill={color.ACCENT} padding="3px 8px">Г</Circle>лавная страница</span>
+                    <span><Circle fill={color.ACCENT} padding="1px 8px">Г</Circle>лавная страница</span>
                 </div> 
             </Link>
             <Menu isActive={page} />

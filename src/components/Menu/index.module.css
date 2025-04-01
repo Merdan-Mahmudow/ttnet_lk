@@ -44,7 +44,9 @@
     text-align: center;
     font-family: Roboto Italic;
     letter-spacing: 1px;
-
+    font-size: clamp(1em, calc(var(--index-size) * 1), 1.15em) ;
+    font-weight: bolder;
+    padding-top: 10px;
 }
 @media (max-width: 768px) {
     .menu{

@@ -49,7 +49,7 @@ export default function Layout() {
             <Header isMobile={isMobile} page={currentPage.page} title={currentPage.title} toggleAside={() => setIsAsideOpen(!isAsideOpen)} />
             <Aside isMobile={isMobile} page={currentPage.page} isOpen={isAsideOpen} />
             <div className={style.content}>
-                <Outlet />
+                    <Outlet />
             </div>
             <Footer />
         </div>

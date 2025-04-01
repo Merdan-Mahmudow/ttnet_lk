@@ -1,6 +1,7 @@
 import React, { ChangeEvent, RefObject } from "react"
 import { UserInfoResponse } from "./user"
 
+
 export interface IconProps {
     fill: string
     width?: string
@@ -44,4 +45,10 @@ export interface AsideProps {
     page: "profile" | "settings" | "support" | "manage" | "balance" | "more"
     isMobile?: boolean
     title?: string
+}
+
+export interface MessageProps {
+    id?: string
+    role: string
+    content: string
 }
