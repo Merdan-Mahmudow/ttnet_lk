@@ -52,7 +52,7 @@
     background-color: white;
     transition: left 0.3s ease-in-out;
     display: grid;
-    grid-template-rows: 73px 80px 1fr;
+    grid-template-rows: 120px 80px 1fr;
     z-index: 1000;
 }
 
