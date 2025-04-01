@@ -7,6 +7,7 @@ import { useSupport } from '../hooks/useSupport'
 import { ChangeEvent, useEffect, useRef, useState } from 'react'
 import { MessageBox } from '../components/ui/message.ui'
 import { MessageProps } from '../types/props'
+import { Toaster } from "../components/ui/toaster"
 
 export const Route = createFileRoute('/support')({
   component: RouteComponent,
@@ -30,12 +31,13 @@ function RouteComponent() {
     setMessages((prev) => [...prev, newMessage]);
     socket.send(JSON.stringify(newMessage));
 
-    setMessage("");
+    
     inputRef.current?.focus();
+    setMessage("");
   };
 
   useEffect(() => {
-    if (!socket) return;
+    if (!socket) return
 
     socket.onopen = () => {
       console.log("connected");
@@ -68,22 +70,23 @@ function RouteComponent() {
           ))}
         </Box>
         <Group attached w="full" padding={"0"}>
-          <Input 
-            ref={inputRef} 
-            flex="1" 
-            placeholder="Введите сообщение..." 
-            boxShadow={"inset 0px 0px 3px 0px"} 
-            bg={color.GRAY_100} 
-            outline={'none'} 
-            color={"white"} 
-            value={message} 
-            onChange={handleChange} 
+          <Input
+            ref={inputRef}
+            flex="1"
+            placeholder="Введите сообщение..."
+            boxShadow={"inset 0px 0px 3px 0px"}
+            bg={color.GRAY_100}
+            outline={'none'}
+            color={"white"}
+            value={message}
+            onChange={handleChange}
           />
           <Button variant="outline" bg={color.GRAY_100} onClick={sendData}>
             <FlightIcon fill='white' />
           </Button>
         </Group>
       </Box>
+      <Toaster />
     </Box>
   );
 }
