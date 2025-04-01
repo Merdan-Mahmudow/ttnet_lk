@@ -10,8 +10,8 @@
   background-position: center;
   display: flex;
   justify-content: center;
-  overflow: hidden;
-  height: 100vh;
+  overflow-x: hidden;
+  min-height: 100lvh;
   color: black;
 }
 .flex {
@@ -26,5 +26,6 @@
 @media (max-width: 768px) {
   #root {
     justify-content: start;
+    overflow-y: auto;
   }
 }
