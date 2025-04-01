@@ -6,7 +6,7 @@ export function useSupport() {
   const [isConnected, setIsConnected] = useState(false);
 
   useEffect(() => {
-    socketRef.current = new WebSocket("wss://api.skyrodev.ru/wsч");
+    socketRef.current = new WebSocket("wss://api.skyrodev.ru/ws");
 
     socketRef.current.onopen = () => {
       console.log("Connected");

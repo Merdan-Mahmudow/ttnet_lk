@@ -8,14 +8,14 @@ interface ActivePage {
     isActive: "profile" | "settings" | "support" | "manage" | "balance" | "more"
 }
 
-export default function Menu({ isActive }: ActivePage) {
+export default function Menu({ isActive, toggleAside }: ActivePage & {toggleAside: () => void}) {
     return (
         <menu className={style.menu} style={{
             backgroundColor: color.GRAY_50
         }}>
             <h3 className={style.connect_world}>Подключи весь мир!</h3>
             <div  style={{ backgroundColor: isActive === "profile" ? color.ACCENT : "transparent" }}>
-                <Link to="/profile" className={style.link}>
+                <Link to="/profile" className={style.link} onClick={toggleAside}>
                     <Circle fill={isActive == "profile" ? "white" : color.ACCENT}>
                         <HumanIcon fill={isActive == "profile" ? color.ACCENT : "white"} width="22" height="22" />
                     </Circle>
@@ -24,7 +24,7 @@ export default function Menu({ isActive }: ActivePage) {
             </div>
 
             <div style={{ backgroundColor: isActive === "settings" ? color.ACCENT : "transparent" }}>
-                <Link to="/settings" className={style.link}>
+                <Link to="/settings" className={style.link} onClick={toggleAside}>
                     <Circle fill={isActive == "settings" ? "white" : color.ACCENT}>
                         <ToolsIcon fill={isActive == "settings" ? color.ACCENT : "white"} width="22" height="22" />
                     </Circle>
@@ -33,7 +33,7 @@ export default function Menu({ isActive }: ActivePage) {
             </div>
 
             <div style={{backgroundColor: isActive === "support" ? color.ACCENT : "transparent" }}>
-                <Link to="/support" className={style.link}>
+                <Link to="/support" className={style.link} onClick={toggleAside}>
                     <Circle fill={isActive == "support" ? "white" : color.ACCENT}>
                         <MessageIcon fill={isActive == "support" ? color.ACCENT : "white"} width="22" height="22" rectFill={isActive == "support" ? "white" : color.ACCENT} />
                     </Circle>
@@ -42,7 +42,7 @@ export default function Menu({ isActive }: ActivePage) {
             </div>
 
             <div style={{ backgroundColor: isActive === "manage" ? color.ACCENT : "transparent" }}>
-                <Link to="/manage" className={style.link}>
+                <Link to="/manage" className={style.link} onClick={toggleAside}>
                     <Circle fill={isActive == "manage" ? "white" : color.ACCENT}>
                         <BrowserIcon fill={isActive == "manage" ? color.ACCENT : "white"} width="22" height="22" />
                     </Circle>
@@ -51,7 +51,7 @@ export default function Menu({ isActive }: ActivePage) {
             </div>
 
             <div style={{backgroundColor: isActive === "balance" ? color.ACCENT : "transparent"}}>
-                <Link to="/balance" className={style.link}>
+                <Link to="/balance" className={style.link} onClick={toggleAside}>
                     <Circle fill={isActive == "balance" ? "white" : color.ACCENT}>
                         <WalletIcon fill={isActive == "balance" ? color.ACCENT : "white"} width="22" height="22" />
                     </Circle>
@@ -60,7 +60,7 @@ export default function Menu({ isActive }: ActivePage) {
             </div>
 
             <div style={{backgroundColor: isActive === "more" ? color.ACCENT : "transparent"}}>
-                <Link to="/more" className={style.link}>
+                <Link to="/more" className={style.link} onClick={toggleAside}>
                     <Circle fill={isActive == "more" ? "white" : color.ACCENT}>
                         <WarnIcon fill={isActive == "more" ? color.ACCENT : "white"} width="22" height="22" />
                     </Circle>

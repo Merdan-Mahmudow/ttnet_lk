@@ -47,7 +47,7 @@ export default function Layout() {
 
         <div className={!isMobile ? style.layout : style.layoutMobile}>
             <Header isMobile={isMobile} page={currentPage.page} title={currentPage.title} toggleAside={() => setIsAsideOpen(!isAsideOpen)} />
-            <Aside isMobile={isMobile} page={currentPage.page} isOpen={isAsideOpen} />
+            <Aside isMobile={isMobile} page={currentPage.page} isOpen={isAsideOpen}  toggleAside={() => {setIsAsideOpen(!isAsideOpen)}}/>
             <div className={style.content}>
                     <Outlet />
             </div>

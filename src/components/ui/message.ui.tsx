@@ -16,8 +16,10 @@ export function MessageBox ({ role, content }: MessageProps) {
                 paddingTop={"3"}
                 paddingBottom={"4"}
                 maxW={"400px"} 
+                w={"fit-content"}
                 color={color.GRAY_100} 
                 bg={color.GRAY_75}
+                display={"block"}
             >{content}</Text>
         : 
             <Text 
@@ -31,8 +33,10 @@ export function MessageBox ({ role, content }: MessageProps) {
                 paddingTop={"3"}
                 paddingBottom={"4"}
                 maxW={"400px"}
+                w={"fit-content"}
                 bg={color.ACCENT} 
                 color={"white"}
+                display={"block"}
             >{content}</Text>}        
         </>
     )

@@ -32,7 +32,7 @@ function RouteComponent() {
     setMessages((prev) => [...prev, newMessage]);
     socket.send(JSON.stringify(newMessage));
 
-    
+
     inputRef.current?.focus();
     setMessage("");
   };
@@ -57,7 +57,6 @@ function RouteComponent() {
   return (
     <Box padding={"20px"} display={"grid"} h={"full"}>
       <Box
-        boxShadow='inset 0 4px 6px -1px rgba(0, 0, 0, 0.1)'
         border={`${color.GRAY_75} 1px solid`}
         bg={color.GRAY_25}
         borderRadius={"xl"}
@@ -66,39 +65,39 @@ function RouteComponent() {
         gridTemplateRows={"1fr 50px"}
         padding={"20px"}
       >
-        <Box overflow="auto">
+        <Box maxH="500px" overflowY="auto">
           {messages.map(({ role, content }, id) => (
             <MessageBox key={id} role={role} content={content} />
           ))}
         </Box>
         <Group attached w="full" padding={"0"} >
-          <Input 
-          variant="subtle"
-            ref={inputRef} 
-            flex="1" 
-            placeholder="Введите сообщение..." 
+          <Input
+            variant="subtle"
+            ref={inputRef}
+            flex="1"
+            placeholder="Введите сообщение..."
             // boxShadow={"inset 0px 0px 3px 0px"} 
             borderColor={"grey"}
-            bg={color.GRAY_75} 
-            outline={'none'} 
-            color={'black'} 
-            value={message} 
-            onChange={handleChange} 
+            bg={color.GRAY_75}
+            outline={'none'}
+            color={'black'}
+            value={message}
+            onChange={handleChange}
             rounded="xl"
           />
-          <Button 
-            variant="solid" 
-            bg={color.ACCENT} 
+          <Button
+            variant="solid"
+            bg={color.ACCENT}
           >
-              <FileIcon fill='white' />
+            <FileIcon fill='white' />
           </Button>
-          <Button 
-            variant="solid" 
-            bg={color.ACCENT} 
+          <Button
+            variant="solid"
+            bg={color.ACCENT}
             onClick={sendData}
             rounded="xl"
           >
-              <FlightIcon fill='white' />
+            <FlightIcon fill='white' />
           </Button>
         </Group>
       </Box>
