@@ -3,6 +3,7 @@ import { createFileRoute } from '@tanstack/react-router'
 import { Box, Button, Group, Input } from '@chakra-ui/react'
 import { color } from '../styles/colors'
 import { FlightIcon } from '../assets/icons/flight.svg'
+import { FileIcon } from '../assets/icons/file.svg'
 import { useSupport } from '../hooks/useSupport'
 import { ChangeEvent, useEffect, useRef, useState } from 'react'
 import { MessageBox } from '../components/ui/message.ui'
@@ -54,8 +55,8 @@ function RouteComponent() {
   return (
     <Box padding={"20px"} display={"grid"} h={"full"}>
       <Box
-        border={`${color.GRAY_100} 1px solid`}
-        bg={color.GRAY_75}
+        border={`${color.GRAY_75} 1px solid`}
+        bg={color.GRAY_25}
         borderRadius={"xl"}
         w={"full"} h={"full"}
         display={"grid"}
@@ -67,20 +68,34 @@ function RouteComponent() {
             <MessageBox key={id} role={role} content={content} />
           ))}
         </Box>
-        <Group attached w="full" padding={"0"}>
+        <Group attached w="full" padding={"0"} >
           <Input 
+          variant="subtle"
             ref={inputRef} 
             flex="1" 
             placeholder="Введите сообщение..." 
-            boxShadow={"inset 0px 0px 3px 0px"} 
-            bg={color.GRAY_100} 
+            // boxShadow={"inset 0px 0px 3px 0px"} 
+            borderColor={"grey"}
+            bg={color.GRAY_75} 
             outline={'none'} 
-            color={"white"} 
+            color={'black'} 
             value={message} 
             onChange={handleChange} 
+            rounded="xl"
           />
-          <Button variant="outline" bg={color.GRAY_100} onClick={sendData}>
-            <FlightIcon fill='white' />
+          <Button 
+            variant="solid" 
+            bg={color.ACCENT} 
+          >
+              <FileIcon fill='white' />
+          </Button>
+          <Button 
+            variant="solid" 
+            bg={color.ACCENT} 
+            onClick={sendData}
+            rounded="xl"
+          >
+              <FlightIcon fill='white' />
           </Button>
         </Group>
       </Box>
