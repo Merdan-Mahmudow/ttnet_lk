@@ -75,7 +75,7 @@ export default function ProfileComponent({ user }: UserProfileProps) {
                                 border={"none"}
                                 marginBottom={"20px"}
                                 _hover={{
-                                    bg: "#055730"
+                                    bg: color.ACCENT_HOVER
                                 }}>Изменить данные</Button>
                         </Dialog.Trigger>
                         <Portal>

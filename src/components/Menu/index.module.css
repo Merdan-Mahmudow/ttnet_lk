@@ -48,6 +48,9 @@
     font-weight: bolder;
     padding-top: 10px;
 }
+.menu{
+    height: 100%;
+}
 @media (max-width: 768px) {
     .menu{
         width: 100%;
