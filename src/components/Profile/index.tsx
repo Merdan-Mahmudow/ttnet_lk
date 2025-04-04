@@ -98,22 +98,34 @@ export default function ProfileComponent({ user }: UserProfileProps) {
                                     color={"black"}
                                     bg={"white"}>
                                     <Dialog.Header>
-                                        <Dialog.Title>Изменение данных</Dialog.Title>
+                                        <Dialog.Title
+                                            color={color.ACCENT}
+                                            fontWeight={'800'}>Изменение данных</Dialog.Title>
                                     </Dialog.Header>
                                     <Dialog.Body>
                                         <Field.Root orientation="horizontal" marginBottom={'10px'}>
-                                            <Field.Label>Номер телефона</Field.Label>
-                                            <Input
+                                            <Field.Label
+                                                color={color.ACCENT}
+                                                fontWeight={'700'}>Номер телефона</Field.Label>
+                                            <Input 
+                                                variant="subtle"
+                                                bg={color.GRAY_50}
                                                 _hover={{
                                                     borderColor: "blue.500",
                                                     boxShadow: "0 0 0 1px blue.500"
                                                 }}
-                                                placeholder="+7 (123) 456-78-90" flex="1" ref={withMask("+7 (999) 999-99-99")} />
+                                                placeholder="+7 (123) 456-78-90" 
+                                                flex="1" 
+                                                ref={withMask("+7 (999) 999-99-99")} />
                                         </Field.Root>
 
                                         <Field.Root orientation="horizontal">
-                                            <Field.Label>Адрес</Field.Label>
-                                            <Input
+                                            <Field.Label
+                                                color={color.ACCENT}
+                                                fontWeight={'700'}>Адрес</Field.Label>
+                                            <Input 
+                                                variant="subtle"
+                                                bg={color.GRAY_50}
                                                 _hover={{
                                                     borderColor: "blue.500",
                                                     boxShadow: "0 0 0 1px blue.500"
@@ -199,12 +211,20 @@ export default function ProfileComponent({ user }: UserProfileProps) {
                                     color={"black"}
                                     bg={"white"}>
                                     <Dialog.Header>
-                                        <Dialog.Title>Смена пароля</Dialog.Title>
+                                        <Dialog.Title
+                                            color={color.ACCENT}
+                                            fontWeight={'800'}>Смена пароля</Dialog.Title>
                                     </Dialog.Header>
                                     <Dialog.Body>
                                         <Field.Root>
-                                            <Field.Label>Старый пароль</Field.Label>
+                                            <Field.Label
+                                                fontSize={'16px'}
+                                                color={color.ACCENT}
+                                                fontWeight={'800'}>Старый пароль</Field.Label>
                                             <PasswordInput
+                                                marginBottom={'10px'}
+                                                variant="subtle"
+                                                bg={color.GRAY_50}
                                                 _hover={{
                                                     borderColor: "blue.500",
                                                     boxShadow: "0 0 0 1px blue.500"
@@ -216,8 +236,14 @@ export default function ProfileComponent({ user }: UserProfileProps) {
                                                 }} />
                                         </Field.Root>
                                         <Field.Root>
-                                            <Field.Label>Новый пароль</Field.Label>
+                                            <Field.Label
+                                                fontSize={'16px'}
+                                                color={color.ACCENT}
+                                                fontWeight={'800'}>Новый пароль</Field.Label>
                                             <PasswordInput
+                                                marginBottom={'10px'}
+                                                variant="subtle"
+                                                bg={color.GRAY_50}
                                                 _hover={{
                                                     borderColor: "blue.500",
                                                     boxShadow: "0 0 0 1px blue.500"
@@ -230,8 +256,14 @@ export default function ProfileComponent({ user }: UserProfileProps) {
                                             />
                                         </Field.Root>
                                         <Field.Root>
-                                            <Field.Label>Подтверждение пароля</Field.Label>
+                                            <Field.Label
+                                                fontSize={'16px'}
+                                                color={color.ACCENT}
+                                                fontWeight={'800'}>Подтверждение пароля</Field.Label>
                                             <PasswordInput
+                                                marginBottom={'10px'}
+                                                variant="subtle"
+                                                bg={color.GRAY_50}
                                                 _hover={{
                                                     borderColor: "blue.500",
                                                     boxShadow: "0 0 0 1px blue.500"
