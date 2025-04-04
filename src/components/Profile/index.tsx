@@ -42,7 +42,7 @@ export default function ProfileComponent({ user }: UserProfileProps) {
                 <h2 className={style.user_name}>{user.name}</h2>
             </div>
             <Grid
-                templateColumns={"repeat(auto-fill, minmax(200px, 1fr))"}
+                templateColumns={"repeat1(2, 1fr)"}
                 gap={"1.5em"}>
                 <GridItem>
                     <TextField
@@ -72,7 +72,11 @@ export default function ProfileComponent({ user }: UserProfileProps) {
                                 bg={color.ACCENT}
                                 borderRadius={"full"}
                                 outline={"none"}
-                                border={"none"}>Изменить данные</Button>
+                                border={"none"}
+                                marginBottom={"20px"}
+                                _hover={{
+                                    bg: "#055730"
+                                }}>Изменить данные</Button>
                         </Dialog.Trigger>
                         <Portal>
                             <Dialog.Backdrop />
@@ -84,14 +88,24 @@ export default function ProfileComponent({ user }: UserProfileProps) {
                                         <Dialog.Title>Изменение данных</Dialog.Title>
                                     </Dialog.Header>
                                     <Dialog.Body>
-                                        <Field.Root orientation="horizontal">
+                                        <Field.Root orientation="horizontal" marginBottom={'10px'}>
                                             <Field.Label>Номер телефона</Field.Label>
-                                            <Input placeholder="+7 (123) 456-78-90" flex="1" ref={withMask("+7 (99) 99999-9999")} />
+                                            <Input 
+                                                _hover={{
+                                                    borderColor: "blue.500",
+                                                    boxShadow: "0 0 0 1px blue.500"
+                                                }}
+                                                placeholder="+7 (123) 456-78-90" flex="1" ref={withMask("+7 (999) 999-99-99")} />
                                         </Field.Root>
 
                                         <Field.Root orientation="horizontal">
                                             <Field.Label>Адрес</Field.Label>
-                                            <Input placeholder="Что-то должно быть" flex="1" />
+                                            <Input 
+                                                _hover={{
+                                                    borderColor: "blue.500",
+                                                    boxShadow: "0 0 0 1px blue.500"
+                                                }}
+                                                placeholder="Город, улица, дом" flex="1" />
                                         </Field.Root>
                                     </Dialog.Body>
                                     <Dialog.Footer>
@@ -99,18 +113,28 @@ export default function ProfileComponent({ user }: UserProfileProps) {
                                             <Button
                                                 color={"white"}
                                                 bg={color.ERROR}
-                                                borderRadius={"full"}>Отмена</Button>
+                                                borderRadius={"full"}
+                                                _hover={{
+                                                    bg: "#8a3333"
+                                                }}>Отмена</Button>
                                         </Dialog.ActionTrigger>
                                         <Button
                                             type="submit"
                                             color={"white"}
                                             bg={color.ACCENT}
-                                            borderRadius={"full"}>Сохранить</Button>
+                                            borderRadius={"full"}
+                                            _hover={{
+                                                bg: "#055730"
+                                            }}>Сохранить</Button>
                                     </Dialog.Footer>
                                     <Dialog.CloseTrigger asChild>
                                         <CloseButton
                                             size="sm"
-                                            color={"black"} />
+                                            color={"black"}
+                                            _hover={{
+                                                bg: '#036336',
+                                                color: 'white'
+                                            }} />
                                     </Dialog.CloseTrigger>
                                 </Dialog.Content>
                             </Dialog.Positioner>
@@ -145,7 +169,11 @@ export default function ProfileComponent({ user }: UserProfileProps) {
                                 bg={color.ACCENT}
                                 borderRadius={"full"}
                                 outline={"none"}
-                                border={"none"}>Сменить пароль</Button>
+                                border={"none"}
+                                marginBottom={"20px"}
+                                _hover={{
+                                    bg: "#055730"
+                                }}>Сменить пароль</Button>
                         </Dialog.Trigger>
                         <Portal>
                             <Dialog.Backdrop />
@@ -160,6 +188,10 @@ export default function ProfileComponent({ user }: UserProfileProps) {
                                         <Field.Root>
                                             <Field.Label>Старый пароль</Field.Label>
                                             <PasswordInput
+                                                _hover={{
+                                                    borderColor: "blue.500",
+                                                    boxShadow: "0 0 0 1px blue.500"
+                                                }}
                                                 textAlign={"center"}
                                                 visibilityIcon={{
                                                     on: <IoEyeSharp fill="black" />,
@@ -169,6 +201,10 @@ export default function ProfileComponent({ user }: UserProfileProps) {
                                         <Field.Root>
                                             <Field.Label>Новый пароль</Field.Label>
                                             <PasswordInput
+                                                _hover={{
+                                                    borderColor: "blue.500",
+                                                    boxShadow: "0 0 0 1px blue.500"
+                                                }}
                                                 textAlign={"center"}
                                                 visibilityIcon={{
                                                     on: <IoEyeSharp fill="black" />,
@@ -179,10 +215,15 @@ export default function ProfileComponent({ user }: UserProfileProps) {
                                         <Field.Root>
                                             <Field.Label>Подтверждение пароля</Field.Label>
                                             <PasswordInput
+                                                _hover={{
+                                                    borderColor: "blue.500",
+                                                    boxShadow: "0 0 0 1px blue.500"
+                                                }}
                                                 textAlign={"center"}
                                                 visibilityIcon={{
                                                     on: <IoEyeSharp fill="black" />,
                                                     off: <IoEyeOffSharp fill="black" />
+                                                    
                                                 }} />
                                         </Field.Root>
 
@@ -192,18 +233,27 @@ export default function ProfileComponent({ user }: UserProfileProps) {
                                             <Button
                                                 color={"white"}
                                                 bg={color.ERROR}
-                                                borderRadius={"full"}>Отмена</Button>
+                                                borderRadius={"full"}
+                                                _hover={{
+                                                    bg: "#8a3333"}}>Отмена</Button>
                                         </Dialog.ActionTrigger>
                                         <Button
                                             type="submit"
                                             color={"white"}
                                             bg={color.ACCENT}
-                                            borderRadius={"full"}>Сохранить</Button>
+                                            borderRadius={"full"}
+                                            _hover={{
+                                                bg: "#055730"
+                                            }}>Сохранить</Button>
                                     </Dialog.Footer>
                                     <Dialog.CloseTrigger asChild>
                                         <CloseButton
                                             size="sm"
-                                            color={"black"} />
+                                            color={"black"} 
+                                            _hover={{
+                                                bg: '#036336',
+                                                color: 'white'
+                                            }} />
                                     </Dialog.CloseTrigger>
                                 </Dialog.Content>
                             </Dialog.Positioner>
