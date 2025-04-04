@@ -29,3 +29,6 @@
     overflow-y: auto;
   }
 }
+.eye_icon:hover svg{
+  fill: var(--accent-color);
+}
