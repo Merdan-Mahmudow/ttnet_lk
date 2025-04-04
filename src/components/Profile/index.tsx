@@ -25,7 +25,6 @@ import {
     IoEyeOffSharp,
     IoEyeSharp
 } from "react-icons/io5";
-// @ts-ignore
 import { withMask } from "use-mask-input"
 import { toaster, Toaster } from "../ui/toaster";
 
