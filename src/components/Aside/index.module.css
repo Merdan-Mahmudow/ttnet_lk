@@ -36,7 +36,8 @@
 
 .aside {
     grid-area: aside;
-    height: calc(100vh - 25px);
+    min-height: calc(100vh - 25px);
+    flex: 1; 
     width: 280px;
     display: grid;
     grid-template-rows: 88px 75px 1fr;
