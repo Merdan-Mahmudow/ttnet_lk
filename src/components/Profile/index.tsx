@@ -115,7 +115,7 @@ export default function ProfileComponent({ user }: UserProfileProps) {
                                                 bg={color.ERROR}
                                                 borderRadius={"full"}
                                                 _hover={{
-                                                    bg: "#8a3333"
+                                                    bg: color.ERROR_HOVER
                                                 }}>Отмена</Button>
                                         </Dialog.ActionTrigger>
                                         <Button
@@ -124,7 +124,7 @@ export default function ProfileComponent({ user }: UserProfileProps) {
                                             bg={color.ACCENT}
                                             borderRadius={"full"}
                                             _hover={{
-                                                bg: "#055730"
+                                                bg: color.ACCENT_HOVER
                                             }}>Сохранить</Button>
                                     </Dialog.Footer>
                                     <Dialog.CloseTrigger asChild>
@@ -132,7 +132,7 @@ export default function ProfileComponent({ user }: UserProfileProps) {
                                             size="sm"
                                             color={"black"}
                                             _hover={{
-                                                bg: '#036336',
+                                                bg: color.ACCENT,
                                                 color: 'white'
                                             }} />
                                     </Dialog.CloseTrigger>
@@ -172,7 +172,7 @@ export default function ProfileComponent({ user }: UserProfileProps) {
                                 border={"none"}
                                 marginBottom={"20px"}
                                 _hover={{
-                                    bg: "#055730"
+                                    bg: color.ACCENT_HOVER
                                 }}>Сменить пароль</Button>
                         </Dialog.Trigger>
                         <Portal>
@@ -235,7 +235,7 @@ export default function ProfileComponent({ user }: UserProfileProps) {
                                                 bg={color.ERROR}
                                                 borderRadius={"full"}
                                                 _hover={{
-                                                    bg: "#8a3333"}}>Отмена</Button>
+                                                    bg: color.ERROR_HOVER}}>Отмена</Button>
                                         </Dialog.ActionTrigger>
                                         <Button
                                             type="submit"
@@ -243,7 +243,7 @@ export default function ProfileComponent({ user }: UserProfileProps) {
                                             bg={color.ACCENT}
                                             borderRadius={"full"}
                                             _hover={{
-                                                bg: "#055730"
+                                                bg: color.ACCENT_HOVER
                                             }}>Сохранить</Button>
                                     </Dialog.Footer>
                                     <Dialog.CloseTrigger asChild>
