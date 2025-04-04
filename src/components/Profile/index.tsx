@@ -27,9 +27,22 @@ import {
 } from "react-icons/io5";
 // @ts-ignore
 import { withMask } from "use-mask-input"
+import { toaster, Toaster } from "../ui/toaster";
 
 export default function ProfileComponent({ user }: UserProfileProps) {
     if (!user.history) return
+    const handleSave = () => {
+        return toaster.create({
+            type: "success",
+            title: "Данные успншно сохранены!"
+        })
+    }
+    const handleSavePass = () => {
+        return toaster.create({
+            type: "success",
+            title: "Пароль обновлен!"
+        })
+    }
     const hasAvatar = false
     return (
         <div className={style.user_content}>
@@ -90,7 +103,7 @@ export default function ProfileComponent({ user }: UserProfileProps) {
                                     <Dialog.Body>
                                         <Field.Root orientation="horizontal" marginBottom={'10px'}>
                                             <Field.Label>Номер телефона</Field.Label>
-                                            <Input 
+                                            <Input
                                                 _hover={{
                                                     borderColor: "blue.500",
                                                     boxShadow: "0 0 0 1px blue.500"
@@ -100,7 +113,7 @@ export default function ProfileComponent({ user }: UserProfileProps) {
 
                                         <Field.Root orientation="horizontal">
                                             <Field.Label>Адрес</Field.Label>
-                                            <Input 
+                                            <Input
                                                 _hover={{
                                                     borderColor: "blue.500",
                                                     boxShadow: "0 0 0 1px blue.500"
@@ -118,14 +131,17 @@ export default function ProfileComponent({ user }: UserProfileProps) {
                                                     bg: color.ERROR_HOVER
                                                 }}>Отмена</Button>
                                         </Dialog.ActionTrigger>
-                                        <Button
-                                            type="submit"
-                                            color={"white"}
-                                            bg={color.ACCENT}
-                                            borderRadius={"full"}
-                                            _hover={{
-                                                bg: color.ACCENT_HOVER
-                                            }}>Сохранить</Button>
+                                        <Dialog.ActionTrigger asChild>
+                                            <Button
+                                                type="submit"
+                                                color={"white"}
+                                                bg={color.ACCENT}
+                                                borderRadius={"full"}
+                                                _hover={{
+                                                    bg: color.ACCENT_HOVER
+                                                }}
+                                                onClick={handleSave}>Сохранить</Button>
+                                        </Dialog.ActionTrigger>
                                     </Dialog.Footer>
                                     <Dialog.CloseTrigger asChild>
                                         <CloseButton
@@ -156,9 +172,9 @@ export default function ProfileComponent({ user }: UserProfileProps) {
                         visibilityIcon={{
                             on: <IoEyeSharp fill="black" />,
                             off: <IoEyeOffSharp fill="black" />
-                        }} 
+                        }}
                         disabled
-                        defaultValue={user.password}/>
+                        defaultValue={user.password} />
 
                     <Dialog.Root
                         placement={"center"}
@@ -224,7 +240,7 @@ export default function ProfileComponent({ user }: UserProfileProps) {
                                                 visibilityIcon={{
                                                     on: <IoEyeSharp fill="black" />,
                                                     off: <IoEyeOffSharp fill="black" />
-                                                    
+
                                                 }} />
                                         </Field.Root>
 
@@ -236,21 +252,25 @@ export default function ProfileComponent({ user }: UserProfileProps) {
                                                 bg={color.ERROR}
                                                 borderRadius={"full"}
                                                 _hover={{
-                                                    bg: color.ERROR_HOVER}}>Отмена</Button>
+                                                    bg: color.ERROR_HOVER
+                                                }}>Отмена</Button>
                                         </Dialog.ActionTrigger>
-                                        <Button
-                                            type="submit"
-                                            color={"white"}
-                                            bg={color.ACCENT}
-                                            borderRadius={"full"}
-                                            _hover={{
-                                                bg: color.ACCENT_HOVER
-                                            }}>Сохранить</Button>
+                                        <Dialog.ActionTrigger asChild>
+                                            <Button
+                                                type="submit"
+                                                color={"white"}
+                                                bg={color.ACCENT}
+                                                borderRadius={"full"}
+                                                _hover={{
+                                                    bg: color.ACCENT_HOVER
+                                                }}
+                                                onClick={handleSavePass}>Сохранить</Button>
+                                        </Dialog.ActionTrigger>
                                     </Dialog.Footer>
                                     <Dialog.CloseTrigger asChild>
                                         <CloseButton
                                             size="sm"
-                                            color={"black"} 
+                                            color={"black"}
                                             _hover={{
                                                 bg: '#036336',
                                                 color: 'white'
@@ -265,7 +285,7 @@ export default function ProfileComponent({ user }: UserProfileProps) {
             <Box>
                 <Text>История входов</Text>
 
-                    <Box padding={"3"} bg={color.GRAY_50} borderRadius={"xl"}>
+                <Box padding={"3"} bg={color.GRAY_50} borderRadius={"xl"}>
                     <Table.Root size="sm">
                         <Table.Body>
                             {user.history.map((item, id) => (
@@ -278,9 +298,9 @@ export default function ProfileComponent({ user }: UserProfileProps) {
                             ))}
                         </Table.Body>
                     </Table.Root>
-                    </Box>
+                </Box>
             </Box>
-
+            <Toaster />
         </div>
     )
 }
