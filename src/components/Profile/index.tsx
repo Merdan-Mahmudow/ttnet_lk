@@ -153,11 +153,12 @@ export default function ProfileComponent({ user }: UserProfileProps) {
                         border={"none"}
                         color={"black"}
                         bg={color.GRAY_25}
-                        mb={"2"} 
                         visibilityIcon={{
                             on: <IoEyeSharp fill="black" />,
                             off: <IoEyeOffSharp fill="black" />
-                        }}/>
+                        }} 
+                        disabled
+                        defaultValue={user.password}/>
 
                     <Dialog.Root
                         placement={"center"}

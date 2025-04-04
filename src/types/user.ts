@@ -4,6 +4,7 @@ export interface UserInfoResponse{
     phone: string
     connection_address: string
     history?: UserHistory[]
+    password: string
 }
 
 interface UserHistory {
