@@ -43,7 +43,7 @@ export default function ProfileComponent({ user }: UserProfileProps) {
             </div>
             <Grid
                 templateColumns={"repeat(auto-fill, minmax(200px, 1fr))"}
-                gap={"3"}>
+                gap={"1.5em"}>
                 <GridItem>
                     <TextField
                         type="phone"
