@@ -1,10 +1,12 @@
-.title{
-    background-color: var(--accent-color);
-    color: white;
-    padding: 10px 30px;
+.warn_message {
+    padding: 30px;
+    display: flex;
+    align-items: center;
     font-family: Roboto;
-    font-weight: 500;
-    letter-spacing: 1px;
-    font-size: 14pt;
-    margin: 0;
+    font-weight: 700;
+    font-size: 24pt;
+    gap: 20px;
+    color: var(--accent-color);
+    user-select: none;
+    margin-bottom: 20px;
 }
