@@ -1,7 +1,8 @@
-import { SimpleGrid, Stack, Box, Text, Editable, useEditable, Button } from '@chakra-ui/react'
+import { SimpleGrid, Stack, Box, Text, Editable, useEditable, Button, IconButton } from '@chakra-ui/react'
 import { createFileRoute } from '@tanstack/react-router'
 import { color } from '../styles/colors'
 import { useState, ChangeEvent } from 'react'
+import { LuPencilLine, LuX, LuCheck } from 'react-icons/lu'
 
 export const Route = createFileRoute('/manage')({
   component: RouteComponent,
@@ -9,8 +10,8 @@ export const Route = createFileRoute('/manage')({
 
 function RouteComponent() {
   const [ip, setIP] = useState<string>("65.432.54.14")
-  const handleIPChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const raw = e.target.value
+  const handleIPChange = (e: any) => {
+    const raw = e
     const cleaned = raw.replace(/[^\d.]/g, '')
 
     const parts = cleaned.split(".")
@@ -59,24 +60,27 @@ function RouteComponent() {
           p={4}>
           <Text>SSID:</Text>
           <Box>
-            <Editable.RootProvider
-              value={editableSSID}
-              bg="gray.100"
-              rounded={"md"}
-              px={"2"}>
-              <Editable.Preview
-                _hover={{ bg: "transparent" }} />
+            <Editable.Root defaultValue={editableSSID.value}>
+              <Editable.Preview  _hover={{ bg: "transparent" }}/>
               <Editable.Input />
-            </Editable.RootProvider>
-            {editableSSID.editing &&
-              <Button
-                bg={color.ACCENT}
-                rounded={"full"}
-                color={"white"}
-                _hover={{
-                  bg: color.ACCENT_HOVER
-                }}>Сохранить</Button>
-            }
+              <Editable.Control>
+                <Editable.EditTrigger asChild>
+                  <IconButton  bg={color.ACCENT} color={"white"} size="xs">
+                    <LuPencilLine />
+                  </IconButton>
+                </Editable.EditTrigger>
+                <Editable.CancelTrigger asChild>
+                  <IconButton bg={color.ACCENT} color={"white"} size="xs">
+                    <LuX />
+                  </IconButton>
+                </Editable.CancelTrigger>
+                <Editable.SubmitTrigger asChild>
+                  <IconButton bg={color.ACCENT} color={"white"} size="xs">
+                    <LuCheck />
+                  </IconButton>
+                </Editable.SubmitTrigger>
+              </Editable.Control>
+            </Editable.Root>
           </Box>
         </Box>
 
