@@ -1,42 +1,24 @@
 import { SimpleGrid, Stack, Box, Text, Editable, useEditable, IconButton } from '@chakra-ui/react'
 import { createFileRoute } from '@tanstack/react-router'
 import { color } from '../styles/colors'
-import { useState, ChangeEvent } from 'react'
+import { useState } from 'react'
 import { LuPencilLine, LuX, LuCheck } from 'react-icons/lu'
+import { validateIP } from '../hooks/tools'
 
 export const Route = createFileRoute('/manage')({
   component: RouteComponent,
 })
 
 function RouteComponent() {
-  const [ip, setIP] = useState<string>("65.432.54.14")
-  const handleIPChange = (e: any) => {
-    const raw = e
-    const cleaned = raw.replace(/[^\d.]/g, '')
+  const [ip, setIp] = useState<string>("65.232.54.14");
+  const [isValidIP, setIsValidIP] = useState<boolean | null>(null);
 
-    const parts = cleaned.split(".")
-    const limitParts: string[] = []
 
-    for (let i = 0; i < parts.length && i < 4; i++) {
-      let part = parts[i]
-      if (part.length > 3) part = part.slice(0, 3);
-
-      let num = parseInt(part, 10)
-
-      if (!isNaN(num)) {
-        if (num > 255) num = 255;
-        part = num.toString()
-      }
-      limitParts.push(part)
-    }
-    const final = limitParts.join('.')
-    setIP(final)
-  }
   const editableSSID = useEditable({
     defaultValue: "Merdan_7G-MEGA-NET",
   })
   const editableIP = useEditable({
-    defaultValue: ip,
+    defaultValue: "65.432.54.14",
   })
   const editableDNSA = useEditable({
     defaultValue: "8.8.4.4",
@@ -63,7 +45,7 @@ function RouteComponent() {
             fontWeight={700}
             marginBottom={'5px'}>SSID:</Text>
           <Box>
-            <Editable.Root defaultValue={editableSSID.value}>
+            <Editable.Root value={editableSSID.value}>
               <Editable.Preview  bg={color.GRAY_50} _hover={{ bg: color.GRAY_75 }} minWidth={"170px"}/>
               <Editable.Input 
                 maxWidth={"400px"} 
@@ -96,9 +78,16 @@ function RouteComponent() {
             fontWeight={700}
             marginBottom={'5px'}>IP адрес:</Text>
           <Box>
-          <Editable.Root defaultValue={editableIP.value}>
-          <Editable.Preview  bg={color.GRAY_50} _hover={{ bg: color.GRAY_75 }} minWidth={"170px"}/>
+            <Editable.Root 
+            defaultValue={editableIP.value}
+            value={ip}
+            onValueChange={(e) => {
+              setIp(e.value);
+              setIsValidIP(validateIP(ip));
+              } }>
+              <Editable.Preview bg={color.GRAY_50} _hover={{ bg: color.GRAY_75 }} minWidth={"170px"}/>
               <Editable.Input 
+                outlineColor={isValidIP ? color.ACCENT : color.ERROR}
                 maxWidth={"400px"} 
                 _selection={{ bg: color.GRAY_50, color: "black"}}/>
               <Editable.Control>
