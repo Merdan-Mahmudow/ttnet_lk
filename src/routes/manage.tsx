@@ -1,42 +1,24 @@
 import { SimpleGrid, Stack, Box, Text, Editable, useEditable, Button, IconButton } from '@chakra-ui/react'
 import { createFileRoute } from '@tanstack/react-router'
 import { color } from '../styles/colors'
-import { useState, ChangeEvent } from 'react'
+import { useState } from 'react'
 import { LuPencilLine, LuX, LuCheck } from 'react-icons/lu'
+import { validateIP } from '../hooks/tools'
 
 export const Route = createFileRoute('/manage')({
   component: RouteComponent,
 })
 
 function RouteComponent() {
-  const [ip, setIP] = useState<string>("65.432.54.14")
-  const handleIPChange = (e: any) => {
-    const raw = e
-    const cleaned = raw.replace(/[^\d.]/g, '')
+  const [ip, setIp] = useState<string>("65.232.54.14");
+  const [isValidIP, setIsValidIP] = useState<boolean | null>(null);
 
-    const parts = cleaned.split(".")
-    const limitParts: string[] = []
 
-    for (let i = 0; i < parts.length && i < 4; i++) {
-      let part = parts[i]
-      if (part.length > 3) part = part.slice(0, 3);
-
-      let num = parseInt(part, 10)
-
-      if (!isNaN(num)) {
-        if (num > 255) num = 255;
-        part = num.toString()
-      }
-      limitParts.push(part)
-    }
-    const final = limitParts.join('.')
-    setIP(final)
-  }
   const editableSSID = useEditable({
     defaultValue: "Beeline_5G_F7575",
   })
   const editableIP = useEditable({
-    defaultValue: ip,
+    defaultValue: "65.432.54.14",
   })
   const editableDNSA = useEditable({
     defaultValue: "8.8.4.4",
@@ -60,12 +42,13 @@ function RouteComponent() {
           p={4}>
           <Text>SSID:</Text>
           <Box>
-            <Editable.Root defaultValue={editableSSID.value}>
-              <Editable.Preview  _hover={{ bg: "transparent" }}/>
+            <Editable.Root
+              value={editableSSID.value}>
+              <Editable.Preview _hover={{ bg: "transparent" }} />
               <Editable.Input />
               <Editable.Control>
                 <Editable.EditTrigger asChild>
-                  <IconButton  bg={color.ACCENT} color={"white"} size="xs">
+                  <IconButton bg={color.ACCENT} color={"white"} size="xs">
                     <LuPencilLine />
                   </IconButton>
                 </Editable.EditTrigger>
@@ -88,25 +71,33 @@ function RouteComponent() {
           p={4}>
           <Text>IP адрес:</Text>
           <Box>
-            <Editable.RootProvider
-              value={editableIP}
-              bg="gray.100"
-              rounded={"md"}
-              px={"2"}
-            >
-              <Editable.Preview
-                _hover={{ bg: "transparent" }} />
-              <Editable.Input />
-            </Editable.RootProvider>
-            {editableIP.editing &&
-              <Button
-                bg={color.ACCENT}
-                rounded={"full"}
-                color={"white"}
-                _hover={{
-                  bg: color.ACCENT_HOVER
-                }}>Сохранить</Button>
-            }
+            <Editable.Root 
+            defaultValue={editableIP.value}
+            value={ip}
+            onValueChange={(e) => {
+              setIp(e.value);
+              setIsValidIP(validateIP(ip));
+              } }>
+              <Editable.Preview _hover={{ bg: "transparent" }} />
+              <Editable.Input outlineColor={isValidIP ? color.ACCENT : color.ERROR}/>
+              <Editable.Control>
+                <Editable.EditTrigger asChild>
+                  <IconButton bg={color.ACCENT} color={"white"} size="xs">
+                    <LuPencilLine />
+                  </IconButton>
+                </Editable.EditTrigger>
+                <Editable.CancelTrigger asChild>
+                  <IconButton bg={color.ACCENT} color={"white"} size="xs">
+                    <LuX />
+                  </IconButton>
+                </Editable.CancelTrigger>
+                <Editable.SubmitTrigger asChild>
+                  <IconButton bg={color.ACCENT} color={"white"} size="xs">
+                    <LuCheck />
+                  </IconButton>
+                </Editable.SubmitTrigger>
+              </Editable.Control>
+            </Editable.Root>
           </Box>
         </Box>
 
