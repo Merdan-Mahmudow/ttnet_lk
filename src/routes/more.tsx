@@ -13,7 +13,7 @@ function RouteComponent() {
     <div className={style.warn_message}>
       <Circle fill={color.ACCENT} padding="13px 13px">
         <WarnIcon fill="white" width="60" height="60" />
-        </Circle>
+      </Circle>
       <h2 className={style.user_name}>В данный момент дополнительные сервисы недоступны, мы уведомим вас</h2>
     </div>
   )
