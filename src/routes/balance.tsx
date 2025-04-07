@@ -24,12 +24,14 @@ function RouteComponent() {
         justifyContent={"space-between"}>
         <Text
           color={color.ACCENT}
+          fontWeight={'700'}
           fontSize={"xl"}>Текущий баланс:
           <Badge
+            fontFamily={'Roboto, Arial, sans-serif'}
             fontSize={"md"}
             ml={"2"}
             bg={color.GRAY_75}
-            color={"black"}
+            color={color.GRAY_100}
             borderRadius={"full"}
             px={"3"} py={"1"}>450.8$
           </Badge>
@@ -41,18 +43,18 @@ function RouteComponent() {
           py={"2"}
           borderRadius={"full"}
           textDecor={"none"}>Пополнить</Link>
-      </Flex><Text>История платежей: </Text>
+      </Flex><Text color={color.ACCENT} fontWeight={"600"}>История платежей: </Text>
       <Box
         p={"2"}
         bg={color.GRAY_50}
-        borderRadius={"3xl"}>
+        borderRadius={"xl"}>
 
-        <Table.Root size="sm">
+        <Table.Root size="md">
           <Table.Header >
             <Table.Row bg={color.GRAY_50}>
-              <Table.ColumnHeader color={"black"}>Дата</Table.ColumnHeader>
-              <Table.ColumnHeader color={"black"}>Сумма</Table.ColumnHeader>
-              <Table.ColumnHeader color={"black"} textAlign="end">Описание</Table.ColumnHeader>
+              <Table.ColumnHeader color={color.ACCENT} fontWeight={"600"}>Дата</Table.ColumnHeader>
+              <Table.ColumnHeader color={color.ACCENT} fontWeight={"600"}>Сумма</Table.ColumnHeader>
+              <Table.ColumnHeader color={color.ACCENT} fontWeight={"600"} textAlign="end">Описание</Table.ColumnHeader>
             </Table.Row>
           </Table.Header>
           <Table.Body
@@ -60,21 +62,21 @@ function RouteComponent() {
             {items.map((item) => (
               <Table.Row key={item.id}
                 bg={color.GRAY_50}
+                margin={"5px"}
               >
                 <Table.Cell
                   border={"none"}
-                  bg={color.GRAY_75}
-                  borderTopLeftRadius={"full"}
-                  borderBottomLeftRadius={"full"}>{item.date}</Table.Cell>
+                  bg={color.GRAY_50}
+                  color={color.GRAY_100}>{item.date}</Table.Cell>
                 <Table.Cell
                   border={"none"}
-                  bg={color.GRAY_75}>{item.price}</Table.Cell>
+                  bg={color.GRAY_50}
+                  color={color.GRAY_100}>{item.price}</Table.Cell>
                 <Table.Cell
                   border={"none"}
-                  bg={color.GRAY_75}
+                  bg={color.GRAY_50}
                   textAlign="end"
-                  borderTopRightRadius={"full"}
-                  borderBottomRightRadius={"full"}>{item.description}</Table.Cell>
+                  color={color.GRAY_100}>{item.description}</Table.Cell>
               </Table.Row>
             ))}
           </Table.Body>

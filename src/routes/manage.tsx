@@ -46,7 +46,7 @@ function RouteComponent() {
             marginBottom={'5px'}>SSID:</Text>
           <Box>
             <Editable.Root value={editableSSID.value}>
-              <Editable.Preview  bg={color.GRAY_50} _hover={{ bg: color.GRAY_75 }} minWidth={"170px"}/>
+              <Editable.Preview bg={color.GRAY_50} _hover={{ bg: color.GRAY_75 }} minWidth={"170px"}/>
               <Editable.Input 
                 maxWidth={"400px"} 
                 _selection={{ bg: color.GRAY_50, color: "black"}}/>
