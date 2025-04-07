@@ -37,7 +37,7 @@ function RouteComponent() {
           </Badge>
         </Text>
         <Link
-          href='https://google.com'
+          href='https://ttnet.ru/users/internet'
           bg={color.ACCENT}
           px={"5"}
           py={"2"}
