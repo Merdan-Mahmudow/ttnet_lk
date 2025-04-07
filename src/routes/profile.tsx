@@ -4,7 +4,7 @@ import { getUserInfo } from '../hooks/useUser'
 import { UserInfoResponse } from '../types/user'
 import ProfileComponent from '../components/Profile'
 import { toaster, Toaster } from '../components/ui/toaster'
-import { Text, Spinner, VStack, HStack, Circle } from '@chakra-ui/react'
+import { Text, Spinner, VStack, Circle } from '@chakra-ui/react'
 import { color } from '../styles/colors'
 import { useEffect } from 'react'
 import { PiWifiSlashBold } from "react-icons/pi";

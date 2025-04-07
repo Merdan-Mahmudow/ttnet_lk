@@ -9,17 +9,14 @@ export function useSupport() {
     socketRef.current = new WebSocket("wss://api.skyrodev.ru/ws");
 
     socketRef.current.onopen = () => {
-      console.log("Connected");
       setIsConnected(true);
     };
 
     socketRef.current.onclose = () => {
-      console.log("Disconnected");
       setIsConnected(false);
     };
 
     socketRef.current.onerror = (error) => {
-      console.log(error)
       toaster.create({
         title: `Ошибка подключения к серверу: ${error}`,
         type: "error"

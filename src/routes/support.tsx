@@ -1,5 +1,4 @@
 import { createFileRoute } from '@tanstack/react-router'
-// import style from "../styles/support.module.css"
 import { Box, Button, Group, Input } from '@chakra-ui/react'
 import { color } from '../styles/colors'
 import { FlightIcon } from '../assets/icons/flight.svg'
@@ -32,17 +31,12 @@ function RouteComponent() {
     setMessages((prev) => [...prev, newMessage]);
     socket.send(JSON.stringify(newMessage));
 
-
     inputRef.current?.focus();
     setMessage("");
   };
 
   useEffect(() => {
     if (!socket) return
-
-    socket.onopen = () => {
-      console.log("connected");
-    };
 
     socket.onmessage = (event) => {
       try {
