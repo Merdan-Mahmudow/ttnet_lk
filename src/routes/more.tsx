@@ -14,7 +14,7 @@ function RouteComponent() {
       <Circle fill={color.ACCENT} padding="13px 13px">
         <WarnIcon fill="white" width="60" height="60" />
       </Circle>
-      <h2 className={style.user_name}>В данный момент дополнительные сервисы недоступны, мы уведомим вас</h2>
+      <h2 className={style.user_name}>В данный момент дополнительные сервисы недоступны, об изменениях мы уведомим вас</h2>
     </div>
   )
 }

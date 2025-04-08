@@ -7,6 +7,12 @@
     font-size: 24pt;
     gap: 20px;
     color: var(--accent-color);
-    user-select: none;
-    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .warn_message {
+        font-size: 20pt;
+        padding: 20px;
+        gap: 15px;
+    }
 }
