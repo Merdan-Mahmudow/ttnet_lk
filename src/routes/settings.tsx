@@ -41,37 +41,38 @@ const handleDownload = () => {
 
   return (
     <Stack
-      px={"10"}
-      pt={"10"}>
+      margin="auto" maxWidth="900px">
       <SimpleGrid
-        columns={{ base: 1, md: 2 }}
-        gap={"5"}
+        minChildWidth="sm" 
+        gap="10px"
       >
+      <Box display="flex" justifyContent="center" width="100%">
         <Box
           p={4}>
           <Text
             color={color.ACCENT}
             fontWeight={700}
-            marginBottom={'5px'}>SSID:</Text>
+            marginBottom={'5px'}
+            fontSize={"lg"}>SSID:</Text>
           <Box>
-            <Editable.Root value={editableSSID.value}>
-              <Editable.Preview bg={color.GRAY_50} _hover={{ bg: color.GRAY_75 }} minWidth={"170px"} />
+            <Editable.Root value={editableSSID.value} size={"lg"}>
+              <Editable.Preview bg={color.GRAY_50} _hover={{ bg: color.GRAY_75 }} minWidth={"300px"}/>
               <Editable.Input
-                maxWidth={"400px"}
+                maxWidth={"300px"}
                 _selection={{ bg: color.GRAY_50, color: "black" }} />
               <Editable.Control>
                 <Editable.EditTrigger asChild>
-                  <IconButton _hover={{ bg: color.ACCENT_HOVER }} bg={color.ACCENT} color={"white"} size="xs">
+                  <IconButton _hover={{ bg: color.ACCENT_HOVER }} bg={color.ACCENT} color={"white"} size="lg">
                     <LuPencilLine />
                   </IconButton>
                 </Editable.EditTrigger>
                 <Editable.CancelTrigger asChild>
-                  <IconButton _hover={{ bg: color.ACCENT_HOVER }} bg={color.ACCENT} color={"white"} size="xs">
+                  <IconButton _hover={{ bg: color.ACCENT_HOVER }} bg={color.ACCENT} color={"white"} size="lg">
                     <LuX />
                   </IconButton>
                 </Editable.CancelTrigger>
                 <Editable.SubmitTrigger asChild>
-                  <IconButton _hover={{ bg: color.ACCENT_HOVER }} bg={color.ACCENT} color={"white"} size="xs">
+                  <IconButton _hover={{ bg: color.ACCENT_HOVER }} bg={color.ACCENT} color={"white"} size="lg">
                     <LuCheck />
                   </IconButton>
                 </Editable.SubmitTrigger>
@@ -79,13 +80,16 @@ const handleDownload = () => {
             </Editable.Root>
           </Box>
         </Box>
+      </Box>
 
+      <Box display="flex" justifyContent="center" width="100%">
         <Box // ----------   S E C O N D   -------------  //`
           p={4}>
           <Text
             color={color.ACCENT}
             fontWeight={700}
-            marginBottom={'5px'}>IP адрес:</Text>
+            marginBottom={'5px'}
+            fontSize={"lg"}>IP адрес:</Text>
           <Box>
             <Editable.Root
               defaultValue={editableIP.value}
@@ -93,25 +97,26 @@ const handleDownload = () => {
               onValueChange={(e) => {
                 setIp(e.value);
                 setIsValidIP(validateIP(ip));
-              }}>
-              <Editable.Preview bg={color.GRAY_50} _hover={{ bg: color.GRAY_75 }} minWidth={"170px"} />
+              }}
+              size={"lg"}>
+              <Editable.Preview bg={color.GRAY_50} _hover={{ bg: color.GRAY_75 }} minWidth={"300px"} />
               <Editable.Input
                 outlineColor={isValidIP ? color.ACCENT : color.ERROR}
-                maxWidth={"400px"}
+                maxWidth={"300px"}
                 _selection={{ bg: color.GRAY_50, color: "black" }} />
               <Editable.Control>
                 <Editable.EditTrigger asChild>
-                  <IconButton _hover={{ bg: color.ACCENT_HOVER }} bg={color.ACCENT} color={"white"} size="xs">
+                  <IconButton _hover={{ bg: color.ACCENT_HOVER }} bg={color.ACCENT} color={"white"} size="lg">
                     <LuPencilLine />
                   </IconButton>
                 </Editable.EditTrigger>
                 <Editable.CancelTrigger asChild>
-                  <IconButton _hover={{ bg: color.ACCENT_HOVER }} bg={color.ACCENT} color={"white"} size="xs">
+                  <IconButton _hover={{ bg: color.ACCENT_HOVER }} bg={color.ACCENT} color={"white"} size="lg">
                     <LuX />
                   </IconButton>
                 </Editable.CancelTrigger>
                 <Editable.SubmitTrigger asChild>
-                  <IconButton _hover={{ bg: color.ACCENT_HOVER }} bg={color.ACCENT} color={"white"} size="xs">
+                  <IconButton _hover={{ bg: color.ACCENT_HOVER }} bg={color.ACCENT} color={"white"} size="lg">
                     <LuCheck />
                   </IconButton>
                 </Editable.SubmitTrigger>
@@ -119,33 +124,37 @@ const handleDownload = () => {
             </Editable.Root>
           </Box>
         </Box>
+      </Box>
 
 
+      <Box display="flex" justifyContent="center" width="100%">
         <Box // ----------   T H I R D    -------------  //
           p={4}>
           <Text
             color={color.ACCENT}
             fontWeight={700}
-            marginBottom={'5px'}>Предпочитаемый DNS адрес:</Text>
+            marginBottom={'5px'}
+            fontSize={"lg"}>Предпочитаемый DNS адрес:</Text>
           <Box>
-            <Editable.Root defaultValue={editableDNSA.value}>
-              <Editable.Preview bg={color.GRAY_50} _hover={{ bg: color.GRAY_75 }} minWidth={"170px"} />
+            <Editable.Root defaultValue={editableDNSA.value}
+            size={"lg"}>
+              <Editable.Preview bg={color.GRAY_50} _hover={{ bg: color.GRAY_75 }} minWidth={"300px"} />
               <Editable.Input
-                maxWidth={"400px"}
+                maxWidth={"300px"}
                 _selection={{ bg: color.GRAY_50, color: "black" }} />
               <Editable.Control>
                 <Editable.EditTrigger asChild>
-                  <IconButton _hover={{ bg: color.ACCENT_HOVER }} bg={color.ACCENT} color={"white"} size="xs">
+                  <IconButton _hover={{ bg: color.ACCENT_HOVER }} bg={color.ACCENT} color={"white"} size="lg">
                     <LuPencilLine />
                   </IconButton>
                 </Editable.EditTrigger>
                 <Editable.CancelTrigger asChild>
-                  <IconButton _hover={{ bg: color.ACCENT_HOVER }} bg={color.ACCENT} color={"white"} size="xs">
+                  <IconButton _hover={{ bg: color.ACCENT_HOVER }} bg={color.ACCENT} color={"white"} size="lg">
                     <LuX />
                   </IconButton>
                 </Editable.CancelTrigger>
                 <Editable.SubmitTrigger asChild>
-                  <IconButton _hover={{ bg: color.ACCENT_HOVER }} bg={color.ACCENT} color={"white"} size="xs">
+                  <IconButton _hover={{ bg: color.ACCENT_HOVER }} bg={color.ACCENT} color={"white"} size="lg">
                     <LuCheck />
                   </IconButton>
                 </Editable.SubmitTrigger>
@@ -153,33 +162,37 @@ const handleDownload = () => {
             </Editable.Root>
           </Box>
         </Box>
+      </Box>
 
 
+      <Box display="flex" justifyContent="center" width="100%">
         <Box // ----------   F O U R T H    -------------  //
           p={4}>
           <Text
             color={color.ACCENT}
             fontWeight={700}
-            marginBottom={'5px'}>Альтернативный DNS адрес:</Text>
+            marginBottom={'5px'}
+            fontSize={"lg"}>Альтернативный DNS адрес:</Text>
           <Box>
-            <Editable.Root defaultValue={editableDNS.value}>
-              <Editable.Preview bg={color.GRAY_50} _hover={{ bg: color.GRAY_75 }} minWidth={"170px"} />
+            <Editable.Root defaultValue={editableDNS.value}
+            size={"lg"}>
+              <Editable.Preview bg={color.GRAY_50} _hover={{ bg: color.GRAY_75 }} minWidth={"300px"} />
               <Editable.Input
-                maxWidth={"400px"}
+                maxWidth={"300px"}
                 _selection={{ bg: color.GRAY_50, color: "black" }} />
               <Editable.Control>
                 <Editable.EditTrigger asChild>
-                  <IconButton _hover={{ bg: color.ACCENT_HOVER }} bg={color.ACCENT} color={"white"} size="xs">
+                  <IconButton _hover={{ bg: color.ACCENT_HOVER }} bg={color.ACCENT} color={"white"} size="lg">
                     <LuPencilLine />
                   </IconButton>
                 </Editable.EditTrigger>
                 <Editable.CancelTrigger asChild>
-                  <IconButton _hover={{ bg: color.ACCENT_HOVER }} bg={color.ACCENT} color={"white"} size="xs">
+                  <IconButton _hover={{ bg: color.ACCENT_HOVER }} bg={color.ACCENT} color={"white"} size="lg">
                     <LuX />
                   </IconButton>
                 </Editable.CancelTrigger>
                 <Editable.SubmitTrigger asChild>
-                  <IconButton _hover={{ bg: color.ACCENT_HOVER }} bg={color.ACCENT} color={"white"} size="xs">
+                  <IconButton _hover={{ bg: color.ACCENT_HOVER }} bg={color.ACCENT} color={"white"} size="lg">
                     <LuCheck />
                   </IconButton>
                 </Editable.SubmitTrigger>
@@ -187,34 +200,38 @@ const handleDownload = () => {
             </Editable.Root>
           </Box>
         </Box>
+      </Box>
 
 
+      <Box display="flex" justifyContent="center" width="100%">
         <Box // ----------   F I F T H    -------------  //
 
           p={4}>
           <Text
             color={color.ACCENT}
             fontWeight={700}
-            marginBottom={'5px'}>Пароль:</Text>
+            marginBottom={'5px'}
+            fontSize={"lg"}>Пароль:</Text>
           <Box>
-            <Editable.Root defaultValue={editablePASS.value}>
-              <Editable.Preview bg={color.GRAY_50} _hover={{ bg: color.GRAY_75 }} minWidth={"170px"} />
+            <Editable.Root defaultValue={editablePASS.value}
+            size={"lg"}>
+              <Editable.Preview bg={color.GRAY_50} _hover={{ bg: color.GRAY_75 }} minWidth={"300px"} />
               <Editable.Input type='password'
-                maxWidth={"400px"}
+                maxWidth={"300px"}
                 _selection={{ bg: color.GRAY_50, color: "black" }} />
               <Editable.Control>
                 <Editable.EditTrigger asChild>
-                  <IconButton _hover={{ bg: color.ACCENT_HOVER }} bg={color.ACCENT} color={"white"} size="xs">
+                  <IconButton _hover={{ bg: color.ACCENT_HOVER }} bg={color.ACCENT} color={"white"} size="lg">
                     <LuPencilLine />
                   </IconButton>
                 </Editable.EditTrigger>
                 <Editable.CancelTrigger asChild>
-                  <IconButton _hover={{ bg: color.ACCENT_HOVER }} bg={color.ACCENT} color={"white"} size="xs">
+                  <IconButton _hover={{ bg: color.ACCENT_HOVER }} bg={color.ACCENT} color={"white"} size="lg">
                     <LuX />
                   </IconButton>
                 </Editable.CancelTrigger>
                 <Editable.SubmitTrigger asChild>
-                  <IconButton _hover={{ bg: color.ACCENT_HOVER }} bg={color.ACCENT} color={"white"} size="xs">
+                  <IconButton _hover={{ bg: color.ACCENT_HOVER }} bg={color.ACCENT} color={"white"} size="lg">
                     <LuCheck />
                   </IconButton>
                 </Editable.SubmitTrigger>
@@ -222,20 +239,25 @@ const handleDownload = () => {
             </Editable.Root>
           </Box>
         </Box>
+      </Box>
 
 
         <Box // ----------   S I X T H    -------------  //
-          p={4}>
+          p={4}
+          px={"0"}
+          pt={"0"}>
           <Text></Text>
         </Box>
 
 
         <Box // ----------   S E V E N T H     -------------  //
+          display="flex" justifyContent="center" width="100%"
           p={4}>
           <Button
             bg={color.ACCENT}
             color={"white"}
             rounded={"full"}
+            size={"lg"}
             _hover={{
               bg: color.ACCENT_HOVER
             }}
@@ -244,6 +266,7 @@ const handleDownload = () => {
 
 
         <Box // ----------   E I G H T H     -------------  //
+          display="flex" justifyContent="center" width="100%"
           p={4}>
           <Dialog.Root
             placement={"center"}
@@ -255,6 +278,7 @@ const handleDownload = () => {
                 bg={color.ACCENT}
                 color={"white"}
                 rounded={"full"}
+                size={"lg"}
                 _hover={{
                   bg: color.ACCENT_HOVER
                 }}>Показать QR код</Button>
