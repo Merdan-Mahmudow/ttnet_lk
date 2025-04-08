@@ -1,6 +1,5 @@
 import { SimpleGrid, Stack } from '@chakra-ui/react'
 import { createFileRoute } from '@tanstack/react-router'
-
 import { DNSAComponent, DNSComponent, DownloadButton, IPComponent, PasswordComponent, QRComponent, SIXTHComponent, SSIDComponent } from '../components/SettingPage'
 
 export const Route = createFileRoute('/settings')({

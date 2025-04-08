@@ -1,5 +1,4 @@
 import { Box, Editable, IconButton, useEditable, Text } from "@chakra-ui/react";
-
 import { LuPencilLine, LuX, LuCheck } from "react-icons/lu";
 import { color } from "../../../styles/colors";
 
