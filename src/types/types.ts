@@ -4,3 +4,13 @@ export interface Transaction {
     description: string
     price: number
 }
+
+export interface SheduleTimer {
+  from: string
+  to: string
+}
+
+export interface Schedule {
+  day: "Пн" | "Вт" | "Ср" | "Чт" | "Пт" | "Сб" | "Вс" 
+  timer: SheduleTimer
+}

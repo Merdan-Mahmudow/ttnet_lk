@@ -3,6 +3,7 @@ import { createFileRoute } from '@tanstack/react-router'
 import { color } from '../styles/colors'
 import { Transaction } from '../types/types'
 import { useFilteredTransactions } from '../hooks/tools'
+import { withMask } from 'use-mask-input'
 
 export const Route = createFileRoute('/balance')({
   component: RouteComponent,
@@ -79,14 +80,14 @@ function RouteComponent() {
           value={from}
           onChange={(e) => setFrom(e.target.value)}
           width="150px"
-          mask={"00.0000"}
+          ref={withMask("99.9999")}
         />
         <Input
           placeholder="До (MM.YYYY)"
           value={to}
           onChange={(e) => setTo(e.target.value)}
           width="150px"
-          mask={"00.0000"}
+          ref={withMask("99.9999")}
         />
       </HStack>
       <Box

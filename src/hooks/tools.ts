@@ -47,7 +47,7 @@ export function useFilteredTransactions(items: Transaction[]) {
         const toDate = to ? parseDateToObj(to) : null;
 
         const filteredItems = items.filter(item => {
-            const itemDate = parseDate(item.datetime.split(" ")[0]); 
+            const itemDate = parseDate(item.datetime.split(" ")[0]);
             const itemDateObj = parseDateToObj(itemDate);
 
             const isAfterFrom = fromDate ? itemDateObj >= fromDate : true;
@@ -61,7 +61,21 @@ export function useFilteredTransactions(items: Transaction[]) {
             setFiltered(filteredItems);
             prevFiltered.current = filteredItems;
         }
-    }, [from, to, items]); 
+    }, [from, to, items]);
 
     return { from, setFrom, to, setTo, filtered };
 }
+
+export const fixTime = (value: string): string => {
+    const parts = value.split(":");
+    if (parts.length !== 2) return value;
+
+    let [h, m] = parts.map((part) => parseInt(part.replace(/\D/g, "") || "0", 10));
+
+    h = Math.min(Math.max(h, 0), 23);
+    m = Math.min(Math.max(m, 0), 59);
+
+    const format = (n: number) => n.toString().padStart(2, "0");
+
+    return `${format(h)}:${format(m)}`;
+};
