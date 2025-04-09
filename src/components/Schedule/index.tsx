@@ -29,19 +29,23 @@ export function ScheduleComponent({ schedule }: { schedule: Schedule[] }) {
         }
     };
     return (
-        <Grid gap={"1em"} p={"5"}>
+        <Grid gap={"1em"} p={"5"} minW={["90vw", "80vw", "100%"]}>
             <For each={editableSchedule}>
                 {(item, index) => (
                     <GridItem key={index}>
                         <HStack
+                            align={"center"}
                             justifyContent={"space-around"}
                         >
-                            <Heading size={"md"} color={color.ACCENT}>{item.day}:</Heading>
+                            <Heading size={["sm", "lg", "lg"]} color={color.ACCENT}>{item.day}:</Heading>
                             <Box>
                                 <Field.Root orientation={"horizontal"}>
-                                    <Field.Label fontWeight={"normal"} pos={"relative"} left={"9"}> от: </Field.Label>
+                                    <Field.Label fontSize={["14px", "20px", "20px"]} fontWeight={"normal"} pos={"relative"} left={"9"}> от: </Field.Label>
                                     <Input
-                                        w={"9em"}
+                                        fontSize={["14px", "16px", "18px"]}
+                                        textAlign={"center"}
+                                        padding={"0px"}
+                                        w={"7em"}
                                         border={"none"}
                                         bg={color.GRAY_75}
                                         ref={withMask("99:99")}
@@ -54,9 +58,12 @@ export function ScheduleComponent({ schedule }: { schedule: Schedule[] }) {
 
                             <Box>
                                 <Field.Root orientation={"horizontal"}>
-                                <Field.Label fontWeight={"normal"} pos={"relative"} left={"9"} >до: </Field.Label>
+                                <Field.Label fontSize={["14px", "20px", "20px"]} fontWeight={"normal"} pos={"relative"} left={"7"} >до: </Field.Label>
                                 <Input
-                                    w={"9em"}
+                                    fontSize={["14px", "16px", "18px"]}
+                                    textAlign={"center"}
+                                    padding={"0px"}
+                                    w={"7em"}
                                     border={"none"}
                                     bg={color.GRAY_75}
                                     ref={withMask("99:99")}

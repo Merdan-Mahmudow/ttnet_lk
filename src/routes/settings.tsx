@@ -22,7 +22,7 @@ function RouteComponent() {
       margin="auto" maxWidth="900px">
       <SimpleGrid
         minChildWidth="sm"
-        gap="10px"
+        gap={["0px", "7px", "10px"]}
       >
         <SSIDComponent />
 

@@ -13,7 +13,7 @@ export const DownloadButtonComponent = () => {
     
     return (
          <Box // ----------   S E V E N T H     -------------  //
-                   display="flex" justifyContent="center" width="100%"
+                   display="flex" justifyContent="center" width={["vw", "100%", "100%"]}
                    p={4}>
                    <Button
                      bg={color.ACCENT}

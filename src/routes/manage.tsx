@@ -40,7 +40,8 @@ function RouteComponent() {
   }
   return (
     <VStack
-      alignItems={"start"}
+      width={["vw", "100%", "100%"]}
+      alignItems={"center"}
       maxH={"full"}
       px={{ base: "1em", md: "2em", lg: "4em" }}
       pt={{ base: "1em", md: "2em" }}
@@ -49,9 +50,11 @@ function RouteComponent() {
         <Circle
           bg={isNetworkOpen ? color.ACCENT : color.ERROR}
           p={".5em"}>
-          <WifiIcon width='18' height='18' fill='white' />
+          <WifiIcon width='25' height='25' fill='white' />
         </Circle>
-        <Text>Интернет {isNetworkOpen ? "включён" : "выключен"}</Text>
+        <Text 
+          fontWeight={"600"}
+          fontSize={"20px"}>Интернет {isNetworkOpen ? "включён" : "выключен"}</Text>
         <Switch.Root
           disabled={isNetworkDisabled}
           size={"lg"}
@@ -65,8 +68,10 @@ function RouteComponent() {
         </Switch.Root>
       </HStack>
 
-      <HStack>
-        <Text>{isSheduleOpen ? "Выключить" : "Включить"} расписание</Text>
+      <HStack marginBottom={"10px"}>
+        <Text
+          fontWeight={"600"}
+          fontSize={"20px"}>{isSheduleOpen ? "Выключить" : "Включить"} расписание</Text>
         <Switch.Root
           size={"lg"}
           colorPalette={"green"}
@@ -82,10 +87,17 @@ function RouteComponent() {
       {
         isSheduleOpen &&
         <Box>
-          <Heading size={"md"} color={color.ACCENT}>Расписание: </Heading>
+          <Heading 
+            textAlign={"center"} 
+            fontSize={"22px"} 
+            fontWeight={"700"} 
+            marginBottom={"5px"}
+            color={color.ACCENT}>Расписание </Heading>
           <Box bg={color.GRAY_50}
-          rounded={"xl"}>
-            
+          rounded={"xl"} 
+          maxW={"90vw"}
+          minW={"60%"}>
+
           <ScheduleComponent schedule={scheduleData} />
         </Box>
         </Box>

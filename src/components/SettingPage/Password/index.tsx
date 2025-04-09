@@ -7,7 +7,7 @@ export const PasswordEditableComponent = () => {
         defaultValue: "SomeStrongPass"
     })
     return (
-        <Box display="flex" justifyContent="center" width="100%">
+        <Box display="flex" justifyContent="center" width={["vw", "100%", "100%"]}>
             <Box // ----------   F I F T H    -------------  //
 
                 p={4}>
@@ -15,27 +15,27 @@ export const PasswordEditableComponent = () => {
                     color={color.ACCENT}
                     fontWeight={700}
                     marginBottom={'5px'}
-                    fontSize={"lg"}>Пароль:</Text>
+                    fontSize={["md", "md", "lg"]}>Пароль:</Text>
                 <Box>
                     <Editable.Root defaultValue={editable.value}
-                        size={"lg"}>
-                        <Editable.Preview bg={color.GRAY_50} _hover={{ bg: color.GRAY_75 }} minWidth={"300px"} />
+                        size={["sm", "md", "lg"]}>
+                        <Editable.Preview bg={color.GRAY_50} _hover={{ bg: color.GRAY_75 }} minWidth={["200px", "300px", "300px"]} />
                         <Editable.Input type='password'
-                            maxWidth={"300px"}
+                            maxWidth={["200px", "300px", "300px"]}
                             _selection={{ bg: color.GRAY_50, color: "black" }} />
                         <Editable.Control>
                             <Editable.EditTrigger asChild>
-                                <IconButton _hover={{ bg: color.ACCENT_HOVER }} bg={color.ACCENT} color={"white"} size="lg">
+                                <IconButton _hover={{ bg: color.ACCENT_HOVER }} bg={color.ACCENT} color={"white"} size={["sm", "md", "lg"]}>
                                     <LuPencilLine />
                                 </IconButton>
                             </Editable.EditTrigger>
                             <Editable.CancelTrigger asChild>
-                                <IconButton _hover={{ bg: color.ACCENT_HOVER }} bg={color.ACCENT} color={"white"} size="lg">
+                                <IconButton _hover={{ bg: color.ACCENT_HOVER }} bg={color.ACCENT} color={"white"} size={["sm", "md", "lg"]}>
                                     <LuX />
                                 </IconButton>
                             </Editable.CancelTrigger>
                             <Editable.SubmitTrigger asChild>
-                                <IconButton _hover={{ bg: color.ACCENT_HOVER }} bg={color.ACCENT} color={"white"} size="lg">
+                                <IconButton _hover={{ bg: color.ACCENT_HOVER }} bg={color.ACCENT} color={"white"} size={["sm", "md", "lg"]}>
                                     <LuCheck />
                                 </IconButton>
                             </Editable.SubmitTrigger>

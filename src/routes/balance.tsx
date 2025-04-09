@@ -1,4 +1,4 @@
-import { Badge, Box, Flex, Stack, Link, Text, Table, HStack, Input } from '@chakra-ui/react'
+import { Badge, Box, Flex, Stack, Link, createListCollection, Text, Table, HStack, Input, Button, useBreakpointValue, Popover, Portal,Select } from '@chakra-ui/react'
 import { createFileRoute } from '@tanstack/react-router'
 import { color } from '../styles/colors'
 import { Transaction } from '../types/types'
@@ -42,22 +42,32 @@ function RouteComponent() {
     { id: 29, datetime: "05.02.2025 09:45", description: "Списание", price: -300.00 },
     { id: 30, datetime: "18.04.2025 20:20", description: "Оплата услуг", price: -150.00 },
   ]
+  const fontSize = useBreakpointValue({ base: "18px", md: "20px", lg: "22px" });
   const { from, to, setFrom, setTo, filtered, } = useFilteredTransactions(items);
+  const dates = createListCollection({
+    items: [
+      { label: "Пол года", value: "half" },
+      { label: "За год", value: "year" },
+      { label: "За 2024", value: "prev_year" },
+      { label: "За 2023", value: "double_prev_year" },
+    ]});
   return (
     <Stack
-      px={"7"}
-      py={"12"}>
+      px={{base: "3", md: "5", lg: "7"}}
+      py={{base: "5", md: "8", lg: "12"}}>
       <Flex
+        direction={{ base: "column", md: "row", lg: "row" }}
+        gap={"5px"}
         w={"full"}
-        alignItems={"center"}
+        alignItems={{base: "flex-start", md: "center"}}
         justifyContent={"space-between"}>
         <Text
           color={color.ACCENT}
           fontWeight={'700'}
-          fontSize={"xl"}>Текущий баланс:
+          fontSize={fontSize}>Текущий баланс:
           <Badge
             fontFamily={'Roboto, Arial, sans-serif'}
-            fontSize={"md"}
+            fontSize={["sm", "md", "md"]}
             ml={"2"}
             bg={color.GRAY_75}
             color={color.GRAY_100}
@@ -70,26 +80,76 @@ function RouteComponent() {
           bg={color.ACCENT}
           px={"5"}
           py={"2"}
+          fontSize={["sm", "md", "lg"]}
           borderRadius={"full"}
           textDecor={"none"}>Пополнить</Link>
       </Flex>
-      <Text color={color.ACCENT} fontWeight={"600"}>История платежей: </Text>
-      <HStack mb={4}>
-        <Input
-          placeholder="От (MM.YYYY)"
-          value={from}
-          onChange={(e) => setFrom(e.target.value)}
-          width="150px"
-          ref={withMask("99.9999")}
-        />
-        <Input
-          placeholder="До (MM.YYYY)"
-          value={to}
-          onChange={(e) => setTo(e.target.value)}
-          width="150px"
-          ref={withMask("99.9999")}
-        />
-      </HStack>
+      <Text color={color.ACCENT} fontWeight={"600"} fontSize={"md"}>История платежей: </Text>
+      <Stack direction={{ base: "column", md: "row", lg: "row" }} gap="2">
+        <HStack mb={4} margin={"0"}>
+          <Input
+            variant={"subtle"}
+            textAlign={"center"}
+            color={color.GRAY_100}
+            bg={color.GRAY_50}
+            rounded={"full"}
+            size={["sm", "md", "md"]}
+            placeholder="От (MM.YYYY)"
+            value={from}
+            onChange={(e) => setFrom(e.target.value)}
+            width={["100px", "150px", "150px"]}
+            ref={withMask("99.9999")}
+            />
+          <Input
+            variant={"subtle"}
+            textAlign={"center"}
+            color={color.GRAY_100}
+            bg={color.GRAY_50}
+            rounded={"full"}
+            size={["sm", "md", "md"]}
+            placeholder="До (MM.YYYY)"
+            value={to}
+            onChange={(e) => setTo(e.target.value)}
+            width={["100px", "150px", "150px"]}
+            ref={withMask("99.9999")}
+          />
+        </HStack>
+        
+        <Select.Root 
+          collection={dates} 
+          size={["sm", "md", "md"]} 
+          width={["120px", "150px", "150px"]}
+          variant={"subtle"}
+          rounded={"full"}>
+              <Select.HiddenSelect />
+              <Select.Control>
+                <Select.Trigger
+                  color={"white"}
+                  bg={color.ACCENT}
+                  rounded={"full"}>
+                  
+                  <Select.ValueText placeholder="Период" />
+                </Select.Trigger>
+                <Select.IndicatorGroup>
+                  <Select.ClearTrigger color={"white"}/>
+                  <Select.Indicator color={"white"}/>
+                </Select.IndicatorGroup>
+              </Select.Control>
+              <Portal>
+                <Select.Positioner>
+                  <Select.Content bg={"white"} color={"black"}
+                    _hover={{bg: color.GRAY_25}}>
+                    {dates.items.map((time) => (
+                      <Select.Item item={time} key={time.value} bg={"transparent"}>
+                        {time.label}
+                        <Select.ItemIndicator color={color.ACCENT}/>
+                      </Select.Item>
+                    ))}
+                  </Select.Content>
+                </Select.Positioner>
+              </Portal>
+            </Select.Root>
+      </Stack>
       <Box
         p={"2"}
         bg={color.GRAY_50}
@@ -97,24 +157,24 @@ function RouteComponent() {
 
 
         <Table.ScrollArea borderWidth="1px" rounded="md" height="30em">
-          <Table.Root size="md" stickyHeader>
+          <Table.Root size={["sm", "md", "md"]} stickyHeader>
             <Table.Header>
               <Table.Row bg={color.GRAY_50}>
-                <Table.ColumnHeader color={color.ACCENT} fontWeight="600">Дата</Table.ColumnHeader>
-                <Table.ColumnHeader color={color.ACCENT} fontWeight="600">Сумма</Table.ColumnHeader>
-                <Table.ColumnHeader color={color.ACCENT} fontWeight="600" textAlign="end">Описание</Table.ColumnHeader>
+                <Table.ColumnHeader color={color.ACCENT} fontSize={["12px", "md", "md"]} fontWeight="600">Дата</Table.ColumnHeader>
+                <Table.ColumnHeader color={color.ACCENT} fontSize={["12px", "md", "md"]} fontWeight="600">Сумма</Table.ColumnHeader>
+                <Table.ColumnHeader color={color.ACCENT} fontSize={["12px", "md", "md"]} fontWeight="600" textAlign="end">Описание</Table.ColumnHeader>
               </Table.Row>
             </Table.Header>
             <Table.Body>
               {filtered.map((item) => (
                 <Table.Row key={item.id} bg={color.GRAY_50} margin="5px">
-                  <Table.Cell border="none" bg={color.GRAY_50} color={color.GRAY_100}>
+                  <Table.Cell border="none" bg={color.GRAY_50} color={color.GRAY_100} fontSize={["12px", "md", "md"]}>
                     {item.datetime}
                   </Table.Cell>
-                  <Table.Cell border="none" bg={color.GRAY_50} color={color.GRAY_100}>
+                  <Table.Cell border="none" bg={color.GRAY_50} color={color.GRAY_100} fontSize={["12px", "md", "md"]}>
                     {item.price}
                   </Table.Cell>
-                  <Table.Cell border="none" bg={color.GRAY_50} textAlign="end" color={color.GRAY_100}>
+                  <Table.Cell border="none" bg={color.GRAY_50} textAlign="end" color={color.GRAY_100} fontSize={["12px", "md", "md"]}>
                     {item.description}
                   </Table.Cell>
                 </Table.Row>

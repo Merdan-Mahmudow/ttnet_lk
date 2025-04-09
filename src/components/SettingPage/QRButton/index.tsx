@@ -7,7 +7,7 @@ export const QRDialogComponent = () => {
 
     return (
         <Box // ----------   E I G H T H     -------------  //
-            display="flex" justifyContent="center" width="100%"
+            display="flex" justifyContent="center" width="vw"
             p={4}>
             <Dialog.Root
                 placement={"center"}
