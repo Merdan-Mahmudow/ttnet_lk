@@ -79,7 +79,7 @@ function RouteComponent() {
 
       {isSheduleOpen &&
         <Box bg={color.GRAY_50}
-          w={"full"}>
+          w={"30em"} rounded={"xl"}>
           <ScheduleComponent schedule={scheduleData} />
         </Box>}
 

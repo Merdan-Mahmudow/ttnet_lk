@@ -1,8 +1,9 @@
-import { For, Grid, GridItem, HStack, Input, Text } from "@chakra-ui/react";
+import { Box,  Field,  For, Grid, GridItem, Heading, HStack, Input } from "@chakra-ui/react";
 import { Schedule } from "../../types/types";
 import { withMask } from "use-mask-input";
 import { useState } from "react";
 import { fixTime } from "../../hooks/tools";
+import { color } from "../../styles/colors";
 
 export function ScheduleComponent({ schedule }: { schedule: Schedule[] }) {
     const [editableSchedule, setEditableSchedule] = useState(schedule)
@@ -28,28 +29,43 @@ export function ScheduleComponent({ schedule }: { schedule: Schedule[] }) {
         }
     };
     return (
-        <Grid gap={"1em"}>
+        <Grid gap={"1em"} p={"5"}>
             <For each={editableSchedule}>
                 {(item, index) => (
                     <GridItem key={index}>
                         <HStack
-                            justifyContent={"space-around"}>
-                            <Text>{item.day}</Text>
-                            <Input
-                                maxW={"5em"}
-                                ref={withMask("99:99")}
-                                value={item.timer.from}
-                                onChange={(e) => handleRawChange(index, "from", e.target.value)}
-                                onBlur={() => handleBlur(index, "from")}
-                            />
+                            justifyContent={"space-around"}
+                        >
+                            <Heading size={"md"} color={color.ACCENT}>{item.day}:</Heading>
+                            <Box>
+                                <Field.Root orientation={"horizontal"}>
+                                    <Field.Label fontWeight={"normal"} pos={"relative"} left={"9"}> от: </Field.Label>
+                                    <Input
+                                        maxW={"9em"}
+                                        border={"none"}
+                                        bg={color.GRAY_75}
+                                        ref={withMask("99:99")}
+                                        value={item.timer.from}
+                                        onChange={(e) => handleRawChange(index, "from", e.target.value)}
+                                        onBlur={() => handleBlur(index, "from")}
+                                    />
+                                </Field.Root>
+                            </Box>
 
-                            <Input
-                                maxW={"5em"}
-                                ref={withMask("99:99")}
-                                value={item.timer.to}
-                                onChange={(e) => handleRawChange(index, "to", e.target.value)}
-                                onBlur={() => handleBlur(index, "to")}
-                            />
+                            <Box>
+                                <Field.Root orientation={"horizontal"}>
+                                <Field.Label fontWeight={"normal"} pos={"relative"} left={"9"} >до: </Field.Label>
+                                <Input
+                                    maxW={"9em"}
+                                    border={"none"}
+                                    bg={color.GRAY_75}
+                                    ref={withMask("99:99")}
+                                    value={item.timer.to}
+                                    onChange={(e) => handleRawChange(index, "to", e.target.value)}
+                                    onBlur={() => handleBlur(index, "to")}
+                                />
+                            </Field.Root>
+                            </Box>
                         </HStack>
                     </GridItem>
                 )}
