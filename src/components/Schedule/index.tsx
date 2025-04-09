@@ -41,7 +41,7 @@ export function ScheduleComponent({ schedule }: { schedule: Schedule[] }) {
                                 <Field.Root orientation={"horizontal"}>
                                     <Field.Label fontWeight={"normal"} pos={"relative"} left={"9"}> от: </Field.Label>
                                     <Input
-                                        maxW={"9em"}
+                                        w={"9em"}
                                         border={"none"}
                                         bg={color.GRAY_75}
                                         ref={withMask("99:99")}
@@ -56,7 +56,7 @@ export function ScheduleComponent({ schedule }: { schedule: Schedule[] }) {
                                 <Field.Root orientation={"horizontal"}>
                                 <Field.Label fontWeight={"normal"} pos={"relative"} left={"9"} >до: </Field.Label>
                                 <Input
-                                    maxW={"9em"}
+                                    w={"9em"}
                                     border={"none"}
                                     bg={color.GRAY_75}
                                     ref={withMask("99:99")}

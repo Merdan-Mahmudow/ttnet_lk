@@ -1,4 +1,4 @@
-import { Box, Circle, HStack, Switch, Text, VStack } from '@chakra-ui/react'
+import { Box, Circle, Heading, HStack, Switch, Text, VStack } from '@chakra-ui/react'
 import { createFileRoute } from '@tanstack/react-router'
 import { WifiIcon } from '../assets/icons'
 import { useState } from 'react'
@@ -42,7 +42,9 @@ function RouteComponent() {
     <VStack
       alignItems={"start"}
       maxH={"full"}
-      padding={"2em 4em 1em 4em"}>
+      px={{ base: "1em", md: "2em", lg: "4em" }}
+      pt={{ base: "1em", md: "2em" }}
+      pb={{ base: "1em" }}>
       <HStack>
         <Circle
           bg={isNetworkOpen ? color.ACCENT : color.ERROR}
@@ -77,12 +79,18 @@ function RouteComponent() {
       </HStack>
 
 
-      {isSheduleOpen &&
-        <Box bg={color.GRAY_50}
-          w={"30em"} rounded={"xl"}>
+      {
+        isSheduleOpen &&
+        <Box>
+          <Heading size={"md"} color={color.ACCENT}>Расписание: </Heading>
+          <Box bg={color.GRAY_50}
+          rounded={"xl"}>
+            
           <ScheduleComponent schedule={scheduleData} />
-        </Box>}
+        </Box>
+        </Box>
+      }
 
-    </VStack>
+    </VStack >
   )
 }
