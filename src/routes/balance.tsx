@@ -1,4 +1,4 @@
-import { Badge, Box, Flex, Stack, Link, createListCollection, Text, Table, HStack, Input, Button, useBreakpointValue, Popover, Portal, Select } from '@chakra-ui/react'
+import { Badge, Box, Flex, Stack, Link, createListCollection, Text, Table, HStack, Input, useBreakpointValue, Portal, Select } from '@chakra-ui/react'
 import { createFileRoute } from '@tanstack/react-router'
 import { color } from '../styles/colors'
 import { Transaction } from '../types/types'
@@ -72,7 +72,16 @@ function RouteComponent() {
   const dates = createListCollection({
     items: selectItems
   })
-  console.log(selectItems)
+
+  const setFilter = (item: TSelectFilter) => {
+    if (item) {
+      setFrom(item.from)
+      setTo(item.to)
+    } else {
+      setFrom(`${halfFromMonth}.${halfFromYear}`)
+      setTo(`${halfToMonth}.${currentYear}`)
+    }
+  }
   return (
     <Stack
       px={{ base: "3", md: "5", lg: "7" }}
@@ -142,7 +151,8 @@ function RouteComponent() {
           size={["sm", "md", "md"]}
           width={["120px", "150px", "150px"]}
           variant={"subtle"}
-          rounded={"full"}>
+          rounded={"full"}
+          onValueChange={(e) => setFilter(e.items["0"])}>
           <Select.HiddenSelect />
           <Select.Control>
             <Select.Trigger
@@ -160,9 +170,9 @@ function RouteComponent() {
           <Portal>
             <Select.Positioner>
               <Select.Content bg={"white"} color={"black"}
-                _hover={{ bg: color.GRAY_25 }}>
+              >
                 {dates.items.map((time) => (
-                  <Select.Item item={time} key={time.value} bg={"transparent"}>
+                  <Select.Item item={time} key={time.value} bg={"transparent"} _hover={{ bg: color.GRAY_25 }}>
                     {time.label}
                     <Select.ItemIndicator color={color.ACCENT} />
                   </Select.Item>
