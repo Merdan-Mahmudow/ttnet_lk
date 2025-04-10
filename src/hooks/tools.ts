@@ -70,7 +70,7 @@ export const fixTime = (value: string): string => {
   if (parts.length !== 2) return value;
 
   let [h, m] = parts.map((part) =>
-    parseInt(part.replace(/\D/g, "") || "0", 10),
+    parseInt(part.replace(/\D/g, "") || "0", 10)
   );
 
   h = Math.min(Math.max(h, 0), 23);

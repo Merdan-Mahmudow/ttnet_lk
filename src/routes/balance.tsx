@@ -9,9 +9,7 @@ import {
   Table,
   HStack,
   Input,
-  Button,
   useBreakpointValue,
-  Popover,
   Portal,
   Select,
 } from "@chakra-ui/react";
@@ -24,6 +22,13 @@ import { withMask } from "use-mask-input";
 export const Route = createFileRoute("/balance")({
   component: RouteComponent,
 });
+
+interface TSelectFilter {
+  label: string;
+  value: string;
+  from: string;
+  to: string;
+}
 
 function RouteComponent() {
   const items: Transaction[] = [
@@ -205,14 +210,56 @@ function RouteComponent() {
   ];
   const fontSize = useBreakpointValue({ base: "18px", md: "20px", lg: "22px" });
   const { from, to, setFrom, setTo, filtered } = useFilteredTransactions(items);
+
+  const currentYear = new Date().getFullYear();
+  const currentMonth = new Date().getMonth();
+
+  const pastDate = new Date();
+  pastDate.setMonth(pastDate.getMonth() - 5);
+
+  const halfFromMonth = (pastDate.getMonth() + 1).toString().padStart(2, "0");
+  const halfFromYear = pastDate.getFullYear();
+  const halfToMonth = currentMonth.toString().padStart(2, "0");
+
+  const selectItems: TSelectFilter[] = [
+    {
+      label: "Пол года",
+      value: "half",
+      from: `${halfFromMonth}.${halfFromYear}`,
+      to: `${halfToMonth}.${currentYear}`,
+    },
+    {
+      label: "За год",
+      value: "year",
+      from: `01.${currentYear}`,
+      to: `${halfToMonth}.${currentYear}`,
+    },
+    {
+      label: `За ${currentYear - 1}`,
+      value: "prev_year",
+      from: `01.${currentYear - 1}`,
+      to: `12.${currentYear - 1}`,
+    },
+    {
+      label: `За ${currentYear - 2}`,
+      value: "double_prev_year",
+      from: `01.${currentYear - 2}`,
+      to: `12.${currentYear - 2}`,
+    },
+  ];
   const dates = createListCollection({
-    items: [
-      { label: "Пол года", value: "half" },
-      { label: "За год", value: "year" },
-      { label: "За 2024", value: "prev_year" },
-      { label: "За 2023", value: "double_prev_year" },
-    ],
+    items: selectItems,
   });
+
+  const setFilter = (item: TSelectFilter) => {
+    if (item) {
+      setFrom(item.from);
+      setTo(item.to);
+    } else {
+      setFrom(`${halfFromMonth}.${halfFromYear}`);
+      setTo(`${halfToMonth}.${currentYear}`);
+    }
+  };
   return (
     <Stack
       px={{ base: "3", md: "5", lg: "7" }}
@@ -291,6 +338,7 @@ function RouteComponent() {
           width={["120px", "150px", "150px"]}
           variant={"subtle"}
           rounded={"full"}
+          onValueChange={(e) => setFilter(e.items["0"])}
         >
           <Select.HiddenSelect />
           <Select.Control>
@@ -304,13 +352,14 @@ function RouteComponent() {
           </Select.Control>
           <Portal>
             <Select.Positioner>
-              <Select.Content
-                bg={"white"}
-                color={"black"}
-                _hover={{ bg: color.GRAY_25 }}
-              >
+              <Select.Content bg={"white"} color={"black"}>
                 {dates.items.map((time) => (
-                  <Select.Item item={time} key={time.value} bg={"transparent"}>
+                  <Select.Item
+                    item={time}
+                    key={time.value}
+                    bg={"transparent"}
+                    _hover={{ bg: color.GRAY_25 }}
+                  >
                     {time.label}
                     <Select.ItemIndicator color={color.ACCENT} />
                   </Select.Item>
