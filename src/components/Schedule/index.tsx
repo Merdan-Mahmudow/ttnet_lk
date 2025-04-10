@@ -1,10 +1,9 @@
-import { Box, Text,  Field,  For, Grid, GridItem, Heading, HStack, Input } from "@chakra-ui/react";
+import { Box, Field,  For, Grid, GridItem, Heading, HStack, Input } from "@chakra-ui/react";
 import { Schedule } from "../../types/types";
 import { withMask } from "use-mask-input";
 import { useState } from "react";
 import { fixTime } from "../../hooks/tools";
 import { color } from "../../styles/colors";
-import { WifiIcon } from "../../assets/icons"; 
 
 export function ScheduleComponent({ schedule }: { schedule: Schedule[] }) {
     const [editableSchedule, setEditableSchedule] = useState(schedule)

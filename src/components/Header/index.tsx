@@ -32,9 +32,14 @@ export function Header({ isMobile, title, toggleAside }: AsideProps & { toggleAs
                 <h1>Личный кабинет</h1>
                 <Dialog.Root size={isMobile ? "full" : "md"}>
                     <Dialog.Trigger asChild>
-                        <IconButton position="relative" bg={"transparent"} size={"2xl"}>
+                        <IconButton 
+                            position="relative" 
+                            bg={"transparent"} 
+                            size={"2xl"} 
+                            _hover={{ bg: color.ACCENT_HOVER}}
+                            rounded={"full"}>
                             <Float offsetY={"5"} offsetX={"5"}>
-                                <Circle fontSize={"sm"} size={"4"} bg={"red"} color={"white"} >
+                                <Circle fontSize={"sm"} size={"4"} bg={"#cc3429"} color={"white"} >
                                     <Span>{notifications.length}</Span>
                                 </Circle>
                             </Float>
@@ -56,7 +61,7 @@ export function Header({ isMobile, title, toggleAside }: AsideProps & { toggleAs
                                                     <Card.Header>
                                                         <Heading size={"md"} color={color.ACCENT}>{item.title}</Heading>
                                                     </Card.Header>
-                                                    <Card.Body color={"black"}>
+                                                    <Card.Body color={"black"} >
                                                         {item.description}
                                                     </Card.Body>
                                                 </Card.Root>
@@ -65,7 +70,7 @@ export function Header({ isMobile, title, toggleAside }: AsideProps & { toggleAs
                                     </Stack>
                                 </Dialog.Body>
                                 <Dialog.CloseTrigger asChild>
-                                    <CloseButton size="sm" _hover={{ bg: color.ACCENT_HOVER }} />
+                                    <CloseButton size="md" rounded={"full"} _hover={{ bg: color.ACCENT_HOVER}} />
                                 </Dialog.CloseTrigger>
                             </Dialog.Content>
                         </Dialog.Positioner>
