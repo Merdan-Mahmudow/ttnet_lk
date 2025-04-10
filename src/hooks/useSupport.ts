@@ -19,8 +19,8 @@ export function useSupport() {
     socketRef.current.onerror = (error) => {
       toaster.create({
         title: `Ошибка подключения к серверу: ${error}`,
-        type: "error"
-      })
+        type: "error",
+      });
     };
 
     return () => {

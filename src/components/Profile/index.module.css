@@ -1,47 +1,47 @@
 .user_content {
-    padding: 30px;
+  padding: 30px;
 }
 .img_name {
-    display: flex;
-    align-items: center;
-    font-family: Roboto;
-    font-weight: 700;
-    font-size: 24pt;
-    gap: 20px;
-    color: var(--accent-color);
-    user-select: none;
-    margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  font-family: Roboto;
+  font-weight: 700;
+  font-size: 24pt;
+  gap: 20px;
+  color: var(--accent-color);
+  user-select: none;
+  margin-bottom: 20px;
 }
 
 .inputs {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-family: Roboto;
-    padding-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: Roboto;
+  padding-top: 30px;
 }
 .phoneInput {
-    outline: none;
-    border: none;
-    background-color: var(--gray-50-color);
-    border-radius: 5px;
-    padding: 5px 10px;
-    font-size: 12.5pt;
-    margin-top: 5px;
+  outline: none;
+  border: none;
+  background-color: var(--gray-50-color);
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 12.5pt;
+  margin-top: 5px;
 }
 
 .addressInput {
-    outline: none;
-    border: none;
-    background-color: var(--gray-50-color);
-    border-radius: 5px;
-    padding: 5px 10px;
-    font-size: 12.5pt;
-    margin-top: 5px;
+  outline: none;
+  border: none;
+  background-color: var(--gray-50-color);
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 12.5pt;
+  margin-top: 5px;
 }
 .addressInputLabel {
-    color: var(--accent-color);
+  color: var(--accent-color);
 }
 .phoneInputLabel {
-    color: var(--accent-color);
+  color: var(--accent-color);
 }

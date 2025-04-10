@@ -11,18 +11,17 @@ import { WifiIcon } from "./wifi.svg";
 import { WalletIcon } from "./wallet.svg";
 import { BurgerCloser } from "./burgerCloser.svg";
 
-
 export {
-    HumanIcon, 
-    HomeIcon,
-    ToolsIcon,
-    MessageIcon,
-    WarnIcon,
-    LeftArrowIcon,
-    NotifyIcon,
-    BrowserIcon,
-    FileIcon,
-    WifiIcon,
-    WalletIcon,
-    BurgerCloser
-}
+  HumanIcon,
+  HomeIcon,
+  ToolsIcon,
+  MessageIcon,
+  WarnIcon,
+  LeftArrowIcon,
+  NotifyIcon,
+  BrowserIcon,
+  FileIcon,
+  WifiIcon,
+  WalletIcon,
+  BurgerCloser,
+};

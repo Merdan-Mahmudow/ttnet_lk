@@ -1,5 +1,5 @@
-import { SimpleGrid, Stack } from '@chakra-ui/react'
-import { createFileRoute } from '@tanstack/react-router'
+import { SimpleGrid, Stack } from "@chakra-ui/react";
+import { createFileRoute } from "@tanstack/react-router";
 import {
   DNSAComponent,
   DNSComponent,
@@ -8,22 +8,17 @@ import {
   PasswordComponent,
   QRComponent,
   SIXTHComponent,
-  SSIDComponent
-} from '../components/SettingPage'
+  SSIDComponent,
+} from "../components/SettingPage";
 
-export const Route = createFileRoute('/settings')({
+export const Route = createFileRoute("/settings")({
   component: RouteComponent,
-})
+});
 
 function RouteComponent() {
-
   return (
-    <Stack
-      margin="auto" maxWidth="900px">
-      <SimpleGrid
-        minChildWidth="sm"
-        gap={["0px", "7px", "10px"]}
-      >
+    <Stack margin="auto" maxWidth="900px">
+      <SimpleGrid minChildWidth="sm" gap={["0px", "7px", "10px"]}>
         <SSIDComponent />
 
         <IPComponent />
@@ -39,8 +34,7 @@ function RouteComponent() {
         <DownloadButton />
 
         <QRComponent />
-
       </SimpleGrid>
     </Stack>
-  )
+  );
 }

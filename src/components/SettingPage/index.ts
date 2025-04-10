@@ -8,13 +8,12 @@ import { DownloadButtonComponent } from "./DownloadButton";
 import { QRDialogComponent } from "./QRButton";
 
 export {
-    SSIDEditableComponent as SSIDComponent,
-    PasswordEditableComponent as PasswordComponent,
-    DNSAEditableComponent as DNSAComponent,
-    DNSEditableComponent as DNSComponent,
-    IPEditableComponent as IPComponent,
-    SIXTHComponent as SIXTHComponent,
-    DownloadButtonComponent as DownloadButton,
-    QRDialogComponent as QRComponent,
-    
+  SSIDEditableComponent as SSIDComponent,
+  PasswordEditableComponent as PasswordComponent,
+  DNSAEditableComponent as DNSAComponent,
+  DNSEditableComponent as DNSComponent,
+  IPEditableComponent as IPComponent,
+  SIXTHComponent as SIXTHComponent,
+  DownloadButtonComponent as DownloadButton,
+  QRDialogComponent as QRComponent,
 };

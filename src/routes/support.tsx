@@ -1,17 +1,17 @@
-import { createFileRoute } from '@tanstack/react-router'
-import { Box, Button, Group, Input } from '@chakra-ui/react'
-import { color } from '../styles/colors'
-import { FlightIcon } from '../assets/icons/flight.svg'
-import { FileIcon } from '../assets/icons/file.svg'
-import { useSupport } from '../hooks/useSupport'
-import { ChangeEvent, useEffect, useRef, useState } from 'react'
-import { MessageBox } from '../components/ui/message.ui'
-import { MessageProps } from '../types/props'
-import { Toaster } from "../components/ui/toaster"
+import { createFileRoute } from "@tanstack/react-router";
+import { Box, Button, Group, Input } from "@chakra-ui/react";
+import { color } from "../styles/colors";
+import { FlightIcon } from "../assets/icons/flight.svg";
+import { FileIcon } from "../assets/icons/file.svg";
+import { useSupport } from "../hooks/useSupport";
+import { ChangeEvent, useEffect, useRef, useState } from "react";
+import { MessageBox } from "../components/ui/message.ui";
+import { MessageProps } from "../types/props";
+import { Toaster } from "../components/ui/toaster";
 
-export const Route = createFileRoute('/support')({
+export const Route = createFileRoute("/support")({
   component: RouteComponent,
-})
+});
 
 function RouteComponent() {
   const { socket, isConnected } = useSupport();
@@ -36,7 +36,7 @@ function RouteComponent() {
   };
 
   useEffect(() => {
-    if (!socket) return
+    if (!socket) return;
 
     socket.onmessage = (event) => {
       try {
@@ -54,7 +54,8 @@ function RouteComponent() {
         border={`${color.GRAY_75} 1px solid`}
         bg={color.GRAY_25}
         borderRadius={"xl"}
-        w={"full"} h={"full"}
+        w={"full"}
+        h={"full"}
         display={"grid"}
         gridTemplateRows={"1fr 50px"}
         padding={"20px"}
@@ -64,26 +65,23 @@ function RouteComponent() {
             <MessageBox key={id} role={role} content={content} />
           ))}
         </Box>
-        <Group attached w="full" padding={"0"} >
+        <Group attached w="full" padding={"0"}>
           <Input
             variant="subtle"
             ref={inputRef}
             flex="1"
             placeholder="Введите сообщение..."
-            // boxShadow={"inset 0px 0px 3px 0px"} 
+            // boxShadow={"inset 0px 0px 3px 0px"}
             borderColor={"grey"}
             bg={color.GRAY_75}
-            outline={'none'}
-            color={'black'}
+            outline={"none"}
+            color={"black"}
             value={message}
             onChange={handleChange}
             rounded="xl"
           />
-          <Button
-            variant="solid"
-            bg={color.ACCENT}
-          >
-            <FileIcon fill='white' />
+          <Button variant="solid" bg={color.ACCENT}>
+            <FileIcon fill="white" />
           </Button>
           <Button
             variant="solid"
@@ -91,7 +89,7 @@ function RouteComponent() {
             onClick={sendData}
             rounded="xl"
           >
-            <FlightIcon fill='white' />
+            <FlightIcon fill="white" />
           </Button>
         </Group>
       </Box>
