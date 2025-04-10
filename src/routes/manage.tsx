@@ -52,7 +52,7 @@ function RouteComponent() {
           p={".5em"}>
           <WifiIcon width='25' height='25' fill='white' />
         </Circle>
-        <Text 
+        <Text
           fontWeight={"600"}
           fontSize={"20px"}>Интернет {isNetworkOpen ? "включён" : "выключен"}</Text>
         <Switch.Root
@@ -87,40 +87,40 @@ function RouteComponent() {
       {
         isSheduleOpen &&
         <Box minW={["90vw", "80vw", "90%"]}>
-          <Heading 
-            textAlign={"center"} 
-            fontSize={"22px"} 
-            fontWeight={"700"} 
+          <Heading
+            textAlign={"center"}
+            fontSize={"22px"}
+            fontWeight={"700"}
             marginBottom={"5px"}
             color={color.ACCENT}>Расписание </Heading>
           <Box bg={color.GRAY_50}
-          rounded={"xl"}>
+            rounded={"xl"}>
 
-            <HStack 
+            <HStack
               padding={"10px"}
               align={"center"}
               justifyContent={"space-around"}>
-                <Heading fontSize={["sm", "lg", "lg"]} color={color.ACCENT}>День недели</Heading>
-                <HStack pos={"relative"} right={["0", "1", "3"]}>
+              <Heading fontSize={["sm", "lg", "lg"]} color={color.ACCENT}>День недели</Heading>
+              <HStack pos={"relative"} right={["0", "1", "3"]}>
                 <Circle
-                    bg={color.ACCENT}
-                    p={".5em"}>
-                    <WifiIcon width='20' height='20' fill='white' />
-                  </Circle>
-                  <Text fontSize={["12px", "lg", "lg"]} fontWeight={"600"} color={color.ACCENT}>Включение</Text>
-                </HStack>
-                <HStack pos={"relative"} right={["0", "1", "3"]}> 
+                  bg={color.ACCENT}
+                  p={".5em"}>
+                  <WifiIcon width='20' height='20' fill='white' />
+                </Circle>
+                <Text fontSize={["12px", "lg", "lg"]} fontWeight={"600"} color={color.ACCENT}>Включение</Text>
+              </HStack>
+              <HStack pos={"relative"} right={["0", "1", "3"]}>
                 <Circle
-                    bg={color.ERROR}
-                    p={".5em"}>
-                    <WifiIcon width='20' height='20' fill='white' />
-                  </Circle>
-                  <Text fontSize={["sm", "lg", "lg"]} fontWeight={"600"} color={color.ACCENT}>Выключение</Text>
-                </HStack>
+                  bg={color.ERROR}
+                  p={".5em"}>
+                  <WifiIcon width='20' height='20' fill='white' />
+                </Circle>
+                <Text fontSize={["sm", "lg", "lg"]} fontWeight={"600"} color={color.ACCENT}>Выключение</Text>
+              </HStack>
             </HStack>
-            
-          <ScheduleComponent schedule={scheduleData} />
-        </Box>
+
+            <ScheduleComponent schedule={scheduleData} />
+          </Box>
         </Box>
       }
 

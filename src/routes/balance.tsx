@@ -1,4 +1,4 @@
-import { Badge, Box, Flex, Stack, Link, createListCollection, Text, Table, HStack, Input, Button, useBreakpointValue, Popover, Portal,Select } from '@chakra-ui/react'
+import { Badge, Box, Flex, Stack, Link, createListCollection, Text, Table, HStack, Input, Button, useBreakpointValue, Popover, Portal, Select } from '@chakra-ui/react'
 import { createFileRoute } from '@tanstack/react-router'
 import { color } from '../styles/colors'
 import { Transaction } from '../types/types'
@@ -8,6 +8,13 @@ import { withMask } from 'use-mask-input'
 export const Route = createFileRoute('/balance')({
   component: RouteComponent,
 })
+
+interface TSelectFilter {
+  label: string
+  value: string
+  from: string
+  to: string
+}
 
 function RouteComponent() {
   const items: Transaction[] = [
@@ -44,22 +51,37 @@ function RouteComponent() {
   ]
   const fontSize = useBreakpointValue({ base: "18px", md: "20px", lg: "22px" });
   const { from, to, setFrom, setTo, filtered, } = useFilteredTransactions(items);
+
+  const currentYear = new Date().getFullYear()
+  const currentMonth = new Date().getMonth()
+
+  const pastDate = new Date();
+  pastDate.setMonth(pastDate.getMonth() - 5);
+
+  const halfFromMonth = (pastDate.getMonth() + 1).toString().padStart(2, '0');
+  const halfFromYear = pastDate.getFullYear();
+  const halfToMonth = currentMonth.toString().padStart(2, '0');
+
+
+  const selectItems: TSelectFilter[] = [
+    { label: "Пол года", value: "half", from: `${halfFromMonth}.${halfFromYear}`, to: `${halfToMonth}.${currentYear}` },
+    { label: "За год", value: "year", from: `01.${currentYear}`, to: `${halfToMonth}.${currentYear}` },
+    { label: `За ${currentYear - 1}`, value: "prev_year", from: `01.${currentYear - 1}`, to: `12.${currentYear - 1}` },
+    { label: `За ${currentYear - 2}`, value: "double_prev_year", from: `01.${currentYear - 2}`, to: `12.${currentYear - 2}` },
+  ]
   const dates = createListCollection({
-    items: [
-      { label: "Пол года", value: "half" },
-      { label: "За год", value: "year" },
-      { label: "За 2024", value: "prev_year" },
-      { label: "За 2023", value: "double_prev_year" },
-    ]});
+    items: selectItems
+  })
+  console.log(selectItems)
   return (
     <Stack
-      px={{base: "3", md: "5", lg: "7"}}
-      py={{base: "5", md: "8", lg: "12"}}>
+      px={{ base: "3", md: "5", lg: "7" }}
+      py={{ base: "5", md: "8", lg: "12" }}>
       <Flex
         direction={{ base: "column", md: "row", lg: "row" }}
         gap={"5px"}
         w={"full"}
-        alignItems={{base: "flex-start", md: "center"}}
+        alignItems={{ base: "flex-start", md: "center" }}
         justifyContent={"space-between"}>
         <Text
           color={color.ACCENT}
@@ -99,7 +121,7 @@ function RouteComponent() {
             onChange={(e) => setFrom(e.target.value)}
             width={["100px", "150px", "150px"]}
             ref={withMask("99.9999")}
-            />
+          />
           <Input
             variant={"subtle"}
             textAlign={"center"}
@@ -114,41 +136,41 @@ function RouteComponent() {
             ref={withMask("99.9999")}
           />
         </HStack>
-        
-        <Select.Root 
-          collection={dates} 
-          size={["sm", "md", "md"]} 
+
+        <Select.Root
+          collection={dates}
+          size={["sm", "md", "md"]}
           width={["120px", "150px", "150px"]}
           variant={"subtle"}
           rounded={"full"}>
-              <Select.HiddenSelect />
-              <Select.Control>
-                <Select.Trigger
-                  color={"white"}
-                  bg={color.ACCENT}
-                  rounded={"full"}>
-                  
-                  <Select.ValueText placeholder="Период" />
-                </Select.Trigger>
-                <Select.IndicatorGroup>
-                  <Select.ClearTrigger color={"white"}/>
-                  <Select.Indicator color={"white"}/>
-                </Select.IndicatorGroup>
-              </Select.Control>
-              <Portal>
-                <Select.Positioner>
-                  <Select.Content bg={"white"} color={"black"}
-                    _hover={{bg: color.GRAY_25}}>
-                    {dates.items.map((time) => (
-                      <Select.Item item={time} key={time.value} bg={"transparent"}>
-                        {time.label}
-                        <Select.ItemIndicator color={color.ACCENT}/>
-                      </Select.Item>
-                    ))}
-                  </Select.Content>
-                </Select.Positioner>
-              </Portal>
-            </Select.Root>
+          <Select.HiddenSelect />
+          <Select.Control>
+            <Select.Trigger
+              color={"white"}
+              bg={color.ACCENT}
+              rounded={"full"}>
+
+              <Select.ValueText placeholder="Период" />
+            </Select.Trigger>
+            <Select.IndicatorGroup>
+              <Select.ClearTrigger color={"white"} />
+              <Select.Indicator color={"white"} />
+            </Select.IndicatorGroup>
+          </Select.Control>
+          <Portal>
+            <Select.Positioner>
+              <Select.Content bg={"white"} color={"black"}
+                _hover={{ bg: color.GRAY_25 }}>
+                {dates.items.map((time) => (
+                  <Select.Item item={time} key={time.value} bg={"transparent"}>
+                    {time.label}
+                    <Select.ItemIndicator color={color.ACCENT} />
+                  </Select.Item>
+                ))}
+              </Select.Content>
+            </Select.Positioner>
+          </Portal>
+        </Select.Root>
       </Stack>
       <Box
         p={"2"}
