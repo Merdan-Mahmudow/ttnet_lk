@@ -10,7 +10,7 @@ export const validateIP = (ip: string): boolean => {
 const parseDate = (dateString: string): string => {
   const [day, month, year] = dateString.split(".");
   if (day) null;
-  return `${month}.${year}`; // Возвращаем в формате MM.YYYY
+  return `${month}.${year}`;
 };
 
 const parseDateToObj = (dateString: string) => {
