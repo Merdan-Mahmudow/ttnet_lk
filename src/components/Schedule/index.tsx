@@ -1,9 +1,10 @@
-import { Box,  Field,  For, Grid, GridItem, Heading, HStack, Input } from "@chakra-ui/react";
+import { Box, Text,  Field,  For, Grid, GridItem, Heading, HStack, Input } from "@chakra-ui/react";
 import { Schedule } from "../../types/types";
 import { withMask } from "use-mask-input";
 import { useState } from "react";
 import { fixTime } from "../../hooks/tools";
 import { color } from "../../styles/colors";
+import { WifiIcon } from "../../assets/icons"; 
 
 export function ScheduleComponent({ schedule }: { schedule: Schedule[] }) {
     const [editableSchedule, setEditableSchedule] = useState(schedule)
@@ -29,7 +30,7 @@ export function ScheduleComponent({ schedule }: { schedule: Schedule[] }) {
         }
     };
     return (
-        <Grid gap={"1em"} p={"5"} minW={["90vw", "80vw", "100%"]}>
+        <Grid gap={"1em"} p={"5"} >
             <For each={editableSchedule}>
                 {(item, index) => (
                     <GridItem key={index}>
@@ -40,7 +41,6 @@ export function ScheduleComponent({ schedule }: { schedule: Schedule[] }) {
                             <Heading size={["sm", "lg", "lg"]} color={color.ACCENT}>{item.day}:</Heading>
                             <Box>
                                 <Field.Root orientation={"horizontal"}>
-                                    <Field.Label fontSize={["14px", "20px", "20px"]} fontWeight={"normal"} pos={"relative"} left={"9"}> от: </Field.Label>
                                     <Input
                                         fontSize={["14px", "16px", "18px"]}
                                         textAlign={"center"}
@@ -48,6 +48,7 @@ export function ScheduleComponent({ schedule }: { schedule: Schedule[] }) {
                                         w={"7em"}
                                         border={"none"}
                                         bg={color.GRAY_75}
+                                        rounded={"full"}
                                         ref={withMask("99:99")}
                                         value={item.timer.from}
                                         onChange={(e) => handleRawChange(index, "from", e.target.value)}
@@ -58,7 +59,6 @@ export function ScheduleComponent({ schedule }: { schedule: Schedule[] }) {
 
                             <Box>
                                 <Field.Root orientation={"horizontal"}>
-                                <Field.Label fontSize={["14px", "20px", "20px"]} fontWeight={"normal"} pos={"relative"} left={"7"} >до: </Field.Label>
                                 <Input
                                     fontSize={["14px", "16px", "18px"]}
                                     textAlign={"center"}
@@ -66,6 +66,7 @@ export function ScheduleComponent({ schedule }: { schedule: Schedule[] }) {
                                     w={"7em"}
                                     border={"none"}
                                     bg={color.GRAY_75}
+                                    rounded={"full"}
                                     ref={withMask("99:99")}
                                     value={item.timer.to}
                                     onChange={(e) => handleRawChange(index, "to", e.target.value)}
